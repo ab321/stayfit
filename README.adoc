@@ -11,6 +11,13 @@ um sicherzustellen, dass Sie Ihre Ziele erreichen und Ihre Fitness verbessern. +
 Mit dieser App haben Sie alle wichtigen Informationen über Ihr Training jederzeit griffbereit und
 können Ihre Fortschritte in Echtzeit verfolgen.
 
+== Datenmodell
+
+[plantuml]
+----
+include::./plantuml/cld.puml[]
+----
+
 == Prototyp
 
 * GUI App-Punkte

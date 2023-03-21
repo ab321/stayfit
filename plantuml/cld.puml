@@ -1,0 +1,35 @@
+@startuml
+class Exercise {
+exerciseNr: int
+name: String
+}
+
+class Template {
+templateNr: int
+name: String
+}
+
+class Set {
+setNr: int
+weight: double
+reps: int
+}
+
+class ExercisePosition {
+exercisePositionNr: int
+templateNr: int
+exerciseNr: int
+}
+
+class User {
+id: int
+userName: String
+password: String
+}
+
+Exercise "1" -- "*" Set : > has
+Exercise "*" -- "*" Template : < includes
+User "1" -- "*" Template : > has
+
+ExercisePosition .. (Exercise, Template)
+@enduml

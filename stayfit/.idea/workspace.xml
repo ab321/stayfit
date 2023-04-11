@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83d74516-d28b-4fbc-8618-ea9ce452b16c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/stayfit/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/stayfit/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/stayfit/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/stayfit/controller/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/stayfit/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/stayfit/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/stayfit/HelloApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/stayfit/HelloApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/stayfit/HelloController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/stayfit/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/stayfit/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +24,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -67,6 +75,8 @@
       <workItem from="1679985981117" duration="3194000" />
       <workItem from="1679989229340" duration="8584000" />
       <workItem from="1679999430276" duration="234000" />
+      <workItem from="1681200240856" duration="7076000" />
+      <workItem from="1681208259829" duration="1117000" />
     </task>
     <servers />
   </component>

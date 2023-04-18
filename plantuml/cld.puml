@@ -6,11 +6,13 @@ name: String
 
 class Template {
 templateNr: int
+userId: int
 name: String
 }
 
 class Set {
 setNr: int
+exerciseNr: int
 weight: double
 reps: int
 }

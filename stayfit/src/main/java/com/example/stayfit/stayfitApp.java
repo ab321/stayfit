@@ -13,8 +13,8 @@ public class stayfitApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         currentStage = stage;
-        FXMLLoader fxmlLoader = new FXMLLoader(stayfitApp.class.getResource("login.fxml"));
-        currentStage.getIcons().add(new Image(stayfitApp.class.getResourceAsStream("logo.jpg")));
+        FXMLLoader fxmlLoader = new FXMLLoader(stayfitApp.class.getResource("view/login.fxml"));
+        currentStage.getIcons().add(new Image(stayfitApp.class.getResourceAsStream("images/logo.jpg")));
 
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
 

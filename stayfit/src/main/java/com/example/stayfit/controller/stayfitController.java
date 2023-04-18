@@ -15,8 +15,8 @@ public class stayfitController {
 
     public void onBtnLogin(ActionEvent actionEvent) throws IOException {
         Stage stage = stayfitApp.getCurrentStage();
-        FXMLLoader fxmlLoader = new FXMLLoader(stayfitApp.class.getResource("template.fxml"));
-        stage.getIcons().add(new Image(stayfitApp.class.getResourceAsStream("logo.jpg")));
+        FXMLLoader fxmlLoader = new FXMLLoader(stayfitApp.class.getResource("view/template.fxml"));
+        stage.getIcons().add(new Image(stayfitApp.class.getResourceAsStream("images/logo.jpg")));
 
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
 

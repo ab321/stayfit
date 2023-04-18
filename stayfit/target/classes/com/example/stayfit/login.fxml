@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:controller="com.example.stayfit.controller.stayfitController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <left>
       <AnchorPane prefHeight="291.0" prefWidth="232.0" BorderPane.alignment="CENTER">
          <children>
@@ -41,7 +41,7 @@
             </Label>
             <TextField layoutX="149.0" layoutY="150.0" promptText="Benutzername" />
             <PasswordField layoutX="150.0" layoutY="198.0" promptText="Passwort" />
-            <Button layoutX="101.0" layoutY="267.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="96.0" style="-fx-background-color: #ff8c00;" styleClass="loginBtn" text="Anmelden" textFill="#e9e9e9">
+            <Button layoutX="101.0" layoutY="267.0" mnemonicParsing="false" onAction="#onBtnLogin" prefHeight="34.0" prefWidth="96.0" style="-fx-background-color: #ff8c00;" styleClass="loginBtn" text="Anmelden" textFill="#e9e9e9">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>

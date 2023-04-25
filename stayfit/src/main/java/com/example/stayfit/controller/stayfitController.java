@@ -29,6 +29,10 @@ public class stayfitController {
         getNewStage("template");
     }
 
+    public void onBtnLogout(ActionEvent actionEvent) throws IOException {
+        getNewStage("login");
+    }
+
     public void onBtnHistory(ActionEvent actionEvent) throws IOException {
         getNewStage("history");
     }

@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane fx:controller="com.example.stayfit.controller.stayfitController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0">
             <children>
@@ -20,7 +20,7 @@
             <top>
                 <HBox alignment="TOP_CENTER" prefHeight="37.0" prefWidth="600.0" style="-fx-background-color: #E9E9E9;" BorderPane.alignment="CENTER">
                     <children>
-                        <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Übungen" textFill="#ff8c00">
+                        <Button onAction="#onBtnExercise" mnemonicParsing="false" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Übungen" textFill="#ff8c00">
                             <font>
                                 <Font size="14.0" />
                             </font>
@@ -31,7 +31,7 @@
                                     </image></ImageView>
                             </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Verlauf" textFill="DARKORANGE">
+                        <Button onAction="#onBtnHistory" mnemonicParsing="false" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Verlauf" textFill="DARKORANGE">
                             <font>
                                 <Font size="14.0" />
                             </font>
@@ -42,7 +42,7 @@
                                     </image></ImageView>
                             </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Vorlagen" textFill="DARKORANGE">
+                        <Button onAction="#onBtnTemplate" mnemonicParsing="false" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Vorlagen" textFill="DARKORANGE">
                             <font>
                                 <Font size="14.0" />
                             </font>
@@ -54,7 +54,7 @@
                                 </ImageView>
                             </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Rechner" textFill="DARKORANGE">
+                        <Button onAction="#onBtnCalculator" mnemonicParsing="false" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Rechner" textFill="DARKORANGE">
                             <font>
                                 <Font size="14.0" />
                             </font>

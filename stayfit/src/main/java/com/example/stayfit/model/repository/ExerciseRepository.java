@@ -1,13 +1,14 @@
-package com.example.stayfit.controller;
+package com.example.stayfit.model.repository;
 
-import com.example.stayfit.entity.Exercise;
+import com.example.stayfit.model.Database;
+import com.example.stayfit.model.entity.Exercise;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
 
-public class ExerciseRepository implements Persistent<Exercise>{
+public class ExerciseRepository implements Persistent<Exercise> {
 
     private DataSource dataSource = Database.getDataSource();
 

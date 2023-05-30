@@ -1,4 +1,4 @@
-package com.example.stayfit.controller;
+package com.example.stayfit.model.repository;
 
 import java.util.List;
 

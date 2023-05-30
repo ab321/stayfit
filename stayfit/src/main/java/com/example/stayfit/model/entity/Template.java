@@ -1,4 +1,4 @@
-package com.example.stayfit.entity;
+package com.example.stayfit.model.entity;
 
 public class Template {
     private Long id;

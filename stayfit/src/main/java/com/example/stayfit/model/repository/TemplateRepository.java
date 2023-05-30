@@ -1,7 +1,8 @@
-package com.example.stayfit.controller;
+package com.example.stayfit.model.repository;
 
-import com.example.stayfit.entity.Template;
-import com.example.stayfit.entity.User;
+import com.example.stayfit.model.Database;
+import com.example.stayfit.model.entity.Template;
+import com.example.stayfit.model.entity.User;
 
 import javax.sql.DataSource;
 import java.sql.*;

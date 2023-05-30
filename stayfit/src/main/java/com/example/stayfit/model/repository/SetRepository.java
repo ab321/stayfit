@@ -1,7 +1,8 @@
-package com.example.stayfit.controller;
+package com.example.stayfit.model.repository;
 
-import com.example.stayfit.entity.Exercise;
-import com.example.stayfit.entity.Set;
+import com.example.stayfit.model.Database;
+import com.example.stayfit.model.entity.Exercise;
+import com.example.stayfit.model.entity.Set;
 
 import java.sql.Connection;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import javax.sql.DataSource;
 
-public class SetRepository  implements Persistent<Set>{
+public class SetRepository  implements Persistent<Set> {
 
     private DataSource dataSource = Database.getDataSource();
     @Override

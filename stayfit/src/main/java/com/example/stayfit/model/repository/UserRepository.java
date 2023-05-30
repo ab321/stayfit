@@ -17,8 +17,7 @@ public class UserRepository implements Persistent<User> {
             insert(user);
         } else {
             update(user);
-        }
-    }
+        }}
 
     @Override
     public void insert(User user) {

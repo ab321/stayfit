@@ -5,9 +5,7 @@ public class ExercisePosition {
     private Exercise exercise;
     private Template template;
 
-    public ExercisePosition(){
-
-    }
+    public ExercisePosition(){ }
     public ExercisePosition(Exercise exercise, Template template) {
         this.exercise = exercise;
         this.template = template;

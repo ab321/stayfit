@@ -1,22 +1,31 @@
 package com.example.stayfit.model;
 
-import org.apache.derby.jdbc.ClientDataSource;
-
-
 import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class Database {
-    static final String DATABASE = "db";
-    static final String USERNAME = "app";
-    static final String PASSWORD = "app";
-    public static final String URL = "jdbc:derby://localhost:1527/" + DATABASE + ";create=true";
+    private static Connection connection;
 
-    public static DataSource getDataSource(){
-        ClientDataSource dataSource = new ClientDataSource();
-        dataSource.setDatabaseName(DATABASE);
-        dataSource.setUser(USERNAME);
-        dataSource.setPassword(PASSWORD);
-        return dataSource;
+    public static Connection openConnection(){
+        try {
+            connection = DriverManager.getConnection("jdbc:derby:stayfit-db");
+            connection.setAutoCommit(true);
+            return connection;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Cannot connect to database", e);
+        }
     }
 
+    public static void closeConnection(){
+        try {
+            connection.close();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Cannot close database", e);
+        }
+    }
 }

@@ -3,6 +3,7 @@ package com.example.stayfit.model.repository;
 import com.example.stayfit.model.Database;
 import com.example.stayfit.model.entity.Template;
 import com.example.stayfit.model.entity.User;
+import com.example.stayfit.stayfitApp;
 
 import javax.sql.DataSource;
 import java.sql.*;
@@ -10,8 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TemplateRepository implements Persistent<Template> {
+    private static Connection connection = null;
 
-    private DataSource dataSource = Database.getDataSource();
+    public TemplateRepository(){
+        connection = stayfitApp.getConnection();
+    }
+
     @Override
     public void save(Template template) {
         if(template.getId() == null){
@@ -24,7 +29,7 @@ public class TemplateRepository implements Persistent<Template> {
 
     @Override
     public void insert(Template template) {
-        try (Connection connection = dataSource.getConnection()) {
+        try {
             String sql = "INSERT INTO S_TEMPLATE(USER_ID,TEMPLATE_NAME) VALUES (?,?)";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -52,7 +57,7 @@ public class TemplateRepository implements Persistent<Template> {
 
     @Override
     public void delete(Template template) {
-        try (Connection connection = dataSource.getConnection()) {
+        try {
             String sql = "DELETE FROM S_TEMPLATE WHERE TEMPLATE_NR=?";
 
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -72,7 +77,7 @@ public class TemplateRepository implements Persistent<Template> {
         List<Template> templateList = new ArrayList<>();
 
 
-        try (Connection connection = dataSource.getConnection()) {
+        try {
             String sql = "SELECT * FROM S_TEMPLATE";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet result = statement.executeQuery();
@@ -100,7 +105,7 @@ public class TemplateRepository implements Persistent<Template> {
     @Override
     public Template findById(Long id) {
 
-        try (Connection connection = dataSource.getConnection()) {
+        try {
             String sql = "SELECT * FROM S_TEMPLATE WHERE TEMPLATE_NR=?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setLong(1, id);
@@ -130,7 +135,7 @@ public class TemplateRepository implements Persistent<Template> {
     @Override
     public void update(Template template) {
 
-        try (Connection connection = dataSource.getConnection()) {
+        try {
             String sql = "UPDATE S_TEMPLATE SET USER_ID=?,TEMPLATE_NAME=? WHERE TEMPLATE_NR=?";
 
             PreparedStatement statement = connection.prepareStatement(sql);

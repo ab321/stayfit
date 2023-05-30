@@ -1,4 +1,8 @@
 package com.example.stayfit.controller;
 
-public class templateController {
+import javafx.event.ActionEvent;
+
+import java.io.IOException;
+
+public class templateController extends stayfitController{
 }

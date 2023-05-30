@@ -3,6 +3,7 @@ package com.example.stayfit.model.repository;
 import com.example.stayfit.model.Database;
 import com.example.stayfit.model.entity.Exercise;
 import com.example.stayfit.model.entity.Set;
+import com.example.stayfit.stayfitApp;
 
 import java.sql.Connection;
 import java.util.List;
@@ -11,8 +12,12 @@ import java.util.ArrayList;
 import javax.sql.DataSource;
 
 public class SetRepository  implements Persistent<Set> {
+    private static Connection connection = null;
 
-    private DataSource dataSource = Database.getDataSource();
+    public SetRepository(){
+        connection = stayfitApp.getConnection();
+    }
+
     @Override
     public void save(Set set) {
         if(set.getId() == null){
@@ -24,7 +29,7 @@ public class SetRepository  implements Persistent<Set> {
 
     @Override
     public void insert(Set set) {
-        try(Connection connection = dataSource.getConnection()){
+        try {
             String sql = "INSERT INTO S_SET(EXERCISE_NR, SET_WEIGHT, SET_REPS) VALUES (?,?,?,?)";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -52,7 +57,7 @@ public class SetRepository  implements Persistent<Set> {
 
     @Override
     public void delete(Set set) {
-        try(Connection connection = dataSource.getConnection()){
+        try {
             String sql = "DELETE FROM S_SET WHERE SET_NR=?";
 
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -74,7 +79,7 @@ public class SetRepository  implements Persistent<Set> {
     public List<Set> findAll() {
         List<Set> setList = new ArrayList<>();
 
-        try(Connection connection = dataSource.getConnection()){
+        try {
             String sql = "SELECT * FROM S_SET";
 
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -83,7 +88,7 @@ public class SetRepository  implements Persistent<Set> {
             while (result.next()){
                 ExerciseRepository exerciseRepository = new ExerciseRepository();
 
-                Long id = result.getLong("BILL_NR");
+                Long id = result.getLong("SET_NR");
                 Long weight = result.getLong("SET_WEIGHT");
                 Long reps = result.getLong("SET_REPS");
                 Exercise exercise = exerciseRepository.findById(result.getLong("EXERCISE_NR"));
@@ -102,7 +107,7 @@ public class SetRepository  implements Persistent<Set> {
 
     @Override
     public Set findById(Long id) {
-        try (Connection connection = dataSource.getConnection()) {
+        try {
             String sql = "SELECT * FROM S_SET WHERE SET_NR=?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setLong(1, id);
@@ -130,7 +135,7 @@ public class SetRepository  implements Persistent<Set> {
 
     @Override
     public void update(Set set) {
-        try (Connection connection = dataSource.getConnection()) {
+        try {
             String sql = "UPDATE S_SET SET EXERCISE_NR=?,SET_WEIGHT, SET_REPS=? WHERE SET_NR=?";
 
             PreparedStatement statement = connection.prepareStatement(sql);

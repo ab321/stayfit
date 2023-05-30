@@ -1,4 +1,8 @@
 package com.example.stayfit.controller;
 
-public class chartController {
+import javafx.event.ActionEvent;
+
+import java.io.IOException;
+
+public class chartController extends stayfitController {
 }

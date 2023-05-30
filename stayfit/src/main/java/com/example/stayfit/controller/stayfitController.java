@@ -11,9 +11,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class stayfitController {
+abstract class stayfitController {
 
-    private void getNewStage(String name) throws IOException {
+    protected void getNewStage(String name) throws IOException {
         Stage stage = stayfitApp.getCurrentStage();
         FXMLLoader fxmlLoader = new FXMLLoader(stayfitApp.class.getResource("view/" + name + ".fxml"));
         stage.getIcons().add(new Image(stayfitApp.class.getResourceAsStream("images/logo.jpg")));
@@ -25,16 +25,20 @@ public class stayfitController {
         stage.show();
     }
 
-    public void onBtnLogin(ActionEvent actionEvent) throws IOException {
-        getNewStage("template");
-    }
-
     public void onBtnLogout(ActionEvent actionEvent) throws IOException {
         getNewStage("login");
     }
 
+    public void onBtnTemplate(ActionEvent actionEvent) throws IOException {
+        getNewStage("template");
+    }
+
     public void onBtnHistory(ActionEvent actionEvent) throws IOException {
         getNewStage("history");
+    }
+
+    public void onBtnExercise(ActionEvent actionEvent) throws IOException {
+        getNewStage("exercise");
     }
 
     public void onBtnChart(ActionEvent actionEvent) throws IOException {
@@ -43,13 +47,5 @@ public class stayfitController {
 
     public void onBtnCalculator(ActionEvent actionEvent) throws IOException {
         getNewStage("calculator");
-    }
-
-    public void onBtnTemplate(ActionEvent actionEvent) throws IOException {
-        getNewStage("template");
-    }
-
-    public void onBtnExercise(ActionEvent actionEvent) throws IOException {
-        getNewStage("exercise");
     }
 }

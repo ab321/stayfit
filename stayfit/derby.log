@@ -1,10 +1,10 @@
 ----------------------------------------------------------------
-Tue May 30 08:31:15 UTC 2023:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0188-6bc8-64a4-000007679098 
-on database directory C:\Users\salko\3BHIF\PR-Java\stayfit\stayfit\stayfit-db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@42110406 
-Loaded from file:/C:/Users/salko/AppData/Roaming/JetBrains/IntelliJIdea2023.1/jdbc-drivers/Apache%20Derby/10.15.2.0/derby-10.15.2.0.jar
-java.vendor=JetBrains s.r.o.
-java.runtime.version=17.0.6+10-b829.9
+Tue May 30 14:35:54 CEST 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0188-6ca8-61ca-00000ec7f4d8 
+on database directory C:\Users\salko\3BHIF\PR-Java\stayfit\stayfit\stayfit-db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@312b1dae 
+Loaded from file:/C:/Users/salko/.m2/repository/org/apache/derby/derby/10.15.2.0/derby-10.15.2.0.jar
+java.vendor=Oracle Corporation
+java.runtime.version=19+36-2238
 user.dir=C:\Users\salko\3BHIF\PR-Java\stayfit\stayfit
 os.name=Windows 11
 os.arch=amd64

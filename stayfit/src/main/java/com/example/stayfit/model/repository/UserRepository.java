@@ -2,6 +2,7 @@ package com.example.stayfit.model.repository;
 
 import com.example.stayfit.model.Database;
 import com.example.stayfit.model.entity.User;
+import com.example.stayfit.stayfitApp;
 
 import javax.sql.DataSource;
 import java.sql.*;
@@ -9,8 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserRepository implements Persistent<User> {
+    private static Connection connection = null;
 
-    private DataSource dataSource = Database.getDataSource();
+    public UserRepository(){
+        connection = stayfitApp.getConnection();
+    }
+
     @Override
     public void save(User user) {
         if (user.getId() == null) {
@@ -21,7 +26,8 @@ public class UserRepository implements Persistent<User> {
 
     @Override
     public void insert(User user) {
-        try (Connection connection = dataSource.getConnection()) {
+        try
+        {
             String sql = "INSERT INTO S_USER(USER_NAME,USER_PASSWORD) VALUES (?,?)";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -49,7 +55,7 @@ public class UserRepository implements Persistent<User> {
 
     @Override
     public void delete(User user) {
-        try (Connection connection = dataSource.getConnection()) {
+        try {
             String sql = "DELETE FROM S_USER WHERE USER_ID=?";
 
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -66,42 +72,42 @@ public class UserRepository implements Persistent<User> {
 
     @Override
     public List<User> findAll() {
-        List<User> billList = new ArrayList<>();
+        List<User> userList = new ArrayList<>();
 
 
-        try (Connection connection = dataSource.getConnection()) {
+        try {
             String sql = "SELECT * FROM S_USER";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet result = statement.executeQuery();
 
             while (result.next()) {
 
-                Long id = result.getLong("BILL_NR");
+                Long id = result.getLong("USER_ID");
                 String name = result.getString("USER_NAME");
                 String password = result.getString("USER_PASSWORD");
                 User user = new User(name, password);
                 user.setId(id);
 
-                billList.add(user);
+                userList.add(user);
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return billList;
+        return userList;
     }
 
     @Override
     public User findById(Long id) {
-        try (Connection connection = dataSource.getConnection()) {
+        try {
             String sql = "SELECT * FROM S_USER WHERE USER_ID=?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setLong(1, id);
             ResultSet result = statement.executeQuery();
 
             while (result.next()) {
-                if(id == result.getInt("BILL_NR")) {
+                if(id == result.getInt("USER_ID")) {
 
                     String name = result.getString("USER_NAME");
                     String password = result.getString("USER_PASSWORD");
@@ -122,7 +128,7 @@ public class UserRepository implements Persistent<User> {
 
     @Override
     public void update(User user) {
-        try (Connection connection = dataSource.getConnection()) {
+        try {
             String sql = "UPDATE S_USER SET USER_NAME=?,USER_PASSWORD=? WHERE USER_ID=?";
 
             PreparedStatement statement = connection.prepareStatement(sql);

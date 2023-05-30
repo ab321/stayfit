@@ -2,6 +2,7 @@ package com.example.stayfit.model.repository;
 
 import com.example.stayfit.model.Database;
 import com.example.stayfit.model.entity.Exercise;
+import com.example.stayfit.stayfitApp;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -9,8 +10,11 @@ import java.util.List;
 import javax.sql.DataSource;
 
 public class ExerciseRepository implements Persistent<Exercise> {
+    private static Connection connection = null;
 
-    private DataSource dataSource = Database.getDataSource();
+    public ExerciseRepository(){
+        connection = stayfitApp.getConnection();
+    }
 
     @Override
     public void save(Exercise exercise) {
@@ -26,7 +30,7 @@ public class ExerciseRepository implements Persistent<Exercise> {
     @Override
     public void insert(Exercise exercise) {
 
-        try(Connection connection = dataSource.getConnection()){
+        try {
             String sql = "INSERT INTO S_EXERCISE(EXERCISE_NAME) VALUES (?)";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -52,7 +56,7 @@ public class ExerciseRepository implements Persistent<Exercise> {
 
     @Override
     public void delete(Exercise exercise) {
-        try(Connection connection = dataSource.getConnection()){
+        try {
             String sql = "DELETE FROM S_EXERCISE WHERE EXERCISE_NR=?";
 
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -72,7 +76,7 @@ public class ExerciseRepository implements Persistent<Exercise> {
         List<Exercise> exerciseList = new ArrayList<>();
 
 
-        try (Connection connection = dataSource.getConnection()) {
+        try {
             String sql = "SELECT * FROM S_EXERCISE";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet result = statement.executeQuery();
@@ -96,7 +100,7 @@ public class ExerciseRepository implements Persistent<Exercise> {
     @Override
     public Exercise findById(Long id) {
 
-        try (Connection connection = dataSource.getConnection()) {
+        try {
             String sql = "SELECT * FROM S_EXERCISE WHERE EXERCISE_NR=?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setLong(1, id);
@@ -123,7 +127,7 @@ public class ExerciseRepository implements Persistent<Exercise> {
     @Override
     public void update(Exercise exercise) {
 
-        try (Connection connection = dataSource.getConnection()) {
+        try {
             String sql = "UPDATE S_EXERCISE SET EXERCISE_NAME=? WHERE EXERCISE_NR=?";
 
             PreparedStatement statement = connection.prepareStatement(sql);

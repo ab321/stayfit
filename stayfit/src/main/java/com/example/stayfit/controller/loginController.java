@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class loginController extends stayfitController {
@@ -21,25 +22,24 @@ public class loginController extends stayfitController {
     public void onBtnLogin(ActionEvent actionEvent) throws IOException {
         try{
             if(userNameField.getText().isEmpty() || passwordField.getText().isEmpty()){
-                passwordField.setText("");
-                userNameField.setText("");
                 throw new Exception();
             }
 
             UserRepository userRepository = new UserRepository();
             List<User> users = userRepository.findAll();
-            List<User> filteredUsers = users.stream().filter(u -> u.getName().equals(userNameField.getText())).collect(Collectors.toList());
+            List<User> filteredUsers = getFilteredUsers(users, user -> user.getName().equals(userNameField.getText()));
 
             if(filteredUsers.isEmpty()){
-                userRepository.insert(new User(userNameField.getText(),
-                        passwordField.getText()));
+                createAlertAndShow(Alert.AlertType.WARNING, "Account not found",
+                        "Seems like you dont have an account\nRegister first");
+                userNameField.setText("");
+                passwordField.setText("");
+                return;
             }
             else {
                 if(filteredUsers.size() != 1){
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error");
-                    alert.setContentText("Something went wrong");
-                    alert.showAndWait();
+                    createAlertAndShow(Alert.AlertType.ERROR, "Error",
+                            "Something went wrong");
                     passwordField.setText("");
                     userNameField.setText("");
                     return;
@@ -58,10 +58,55 @@ public class loginController extends stayfitController {
             getNewStage("template");
         }
         catch(Exception e){
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Login failed");
-            alert.setContentText("Incorrect Username and/or Password");
-            alert.showAndWait();
+            createAlertAndShow(Alert.AlertType.WARNING, "Login failed",
+                    "Incorrect Username and/or Password");
+            passwordField.setText("");
+            userNameField.setText("");
+        }
+    }
+
+    private void createAlertAndShow(Alert.AlertType type, String title, String content){
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
+
+    private List<User> getFilteredUsers(List<User> users, Predicate<User> predicate){
+        return users.stream().filter(predicate).collect(Collectors.toList());
+    }
+
+    public void onBtnRegister(ActionEvent actionEvent) {
+        try{
+            if(userNameField.getText().isEmpty() || passwordField.getText().isEmpty()){
+                passwordField.setText("");
+                userNameField.setText("");
+                createAlertAndShow(Alert.AlertType.WARNING, "Login failed",
+                        "Incorrect Username and/or Password");
+                return;
+            }
+
+            UserRepository userRepository = new UserRepository();
+            List<User> users = userRepository.findAll();
+            List<User> filteredUsers = getFilteredUsers(users, user -> user.getName().equals(userNameField.getText()));
+
+            if(!filteredUsers.isEmpty()){
+                createAlertAndShow(Alert.AlertType.WARNING, "Username given",
+                        "Username is already given\nLook for new Username");
+                return;
+            }
+
+            userRepository.insert(new User(userNameField.getText(),
+                    passwordField.getText()));
+
+            failedLoginLabel.setText("");
+            getNewStage("template");
+        }
+        catch (Exception ex){
+            createAlertAndShow(Alert.AlertType.ERROR, "Error",
+                    "Something went wrong");
+        }
+        finally {
             passwordField.setText("");
             userNameField.setText("");
         }

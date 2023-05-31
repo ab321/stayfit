@@ -10,7 +10,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 public class ExerciseRepository implements Persistent<Exercise> {
-    private static Connection connection = null;
+    private static Connection connection = Database.openConnection();
 
     public ExerciseRepository(){
         connection = stayfitApp.getConnection();
@@ -30,10 +30,10 @@ public class ExerciseRepository implements Persistent<Exercise> {
     @Override
     public void insert(Exercise exercise) {
 
-        try {
+        try(Connection connection1 = Database.openConnection()) {
             String sql = "INSERT INTO S_EXERCISE(EXERCISE_NAME) VALUES (?)";
 
-            PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement statement = connection1.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, exercise.getName());
 
 

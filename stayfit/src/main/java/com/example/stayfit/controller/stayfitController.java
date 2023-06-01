@@ -18,7 +18,7 @@ abstract class stayfitController {
         FXMLLoader fxmlLoader = new FXMLLoader(stayfitApp.class.getResource("view/" + name + ".fxml"));
         stage.getIcons().add(new Image(stayfitApp.class.getResourceAsStream("images/logo.jpg")));
 
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 700, 450);
 
         stage.setTitle("Stayfit");
         stage.setScene(scene);

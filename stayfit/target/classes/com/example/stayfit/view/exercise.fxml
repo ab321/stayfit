@@ -5,15 +5,42 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane fx:controller="com.example.stayfit.controller.exerciseController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stayfit.controller.exerciseController">
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0">
          <children>
+            <Button layoutX="558.0" layoutY="297.0" mnemonicParsing="false" onAction="#onBtnAdd" prefHeight="27.0" prefWidth="86.0" style="-fx-background-color: #E9E9E9;" styleClass="btn" text="Hinzufügen" textFill="DARKORANGE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <TextField editable="true" fx:id="searchField" layoutX="62.0" layoutY="119.0" prefHeight="26.0" prefWidth="144.0" style="-fx-border-color: #ff8c00; -fx-background-color: #E9E9E9;" />
             <Label layoutX="300.0" layoutY="55.0" prefHeight="54.0" prefWidth="100.0" styleClass="title" text="Übungen" textFill="DARKORANGE">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
             </Label>
+            <ListView fx:id="exerciseLv" layoutX="62.0" layoutY="155.0" prefHeight="264.0" prefWidth="238.0" style="-fx-border-color: #ff8c00; -fx-background-color: #E9E9E9;" />
+            <Button layoutX="222.0" layoutY="119.0" mnemonicParsing="false" onAction="#onBtnSearch" prefHeight="14.0" prefWidth="78.0" style="-fx-background-color: #E9E9E9;" styleClass="btn" text="Suchen" textFill="DARKORANGE">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
+            <Button layoutX="451.0" layoutY="297.0" mnemonicParsing="false" onAction="#onBtnSave" prefHeight="27.0" prefWidth="78.0" style="-fx-background-color: #E9E9E9;" styleClass="btn" text="Speichern" textFill="DARKORANGE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <Button layoutX="350.0" layoutY="297.0" mnemonicParsing="false" onAction="#onBtnDelete" prefHeight="27.0" prefWidth="72.0" style="-fx-background-color: #E9E9E9;" styleClass="btn" text="Löschen" textFill="DARKORANGE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER" layoutX="329.0" layoutY="199.0" prefHeight="44.0" prefWidth="107.0" text="Name" textFill="DARKORANGE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField editable="true" fx:id="nameField" layoutX="453.0" layoutY="209.0" prefHeight="27.0" prefWidth="189.0" style="-fx-border-color: #ff8c00; -fx-background-color: #E9E9E9;" />
          </children>
       </AnchorPane>
       <BorderPane prefHeight="200.0" prefWidth="200.0">
@@ -31,7 +58,7 @@
                            </image></ImageView>
                      </graphic>
                   </Button>
-                  <Button onAction="#onBtnHistory" mnemonicParsing="false" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Verlauf" textFill="DARKORANGE">
+                  <Button mnemonicParsing="false" onAction="#onBtnHistory" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Verlauf" textFill="DARKORANGE">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -42,7 +69,7 @@
                            </image></ImageView>
                      </graphic>
                   </Button>
-                  <Button onAction="#onBtnTemplate" mnemonicParsing="false" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Vorlagen" textFill="DARKORANGE">
+                  <Button mnemonicParsing="false" onAction="#onBtnTemplate" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Vorlagen" textFill="DARKORANGE">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -54,7 +81,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button onAction="#onBtnCalculator" mnemonicParsing="false" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Rechner" textFill="DARKORANGE">
+                  <Button mnemonicParsing="false" onAction="#onBtnCalculator" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Rechner" textFill="DARKORANGE">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -66,7 +93,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button onAction="#onBtnChart" mnemonicParsing="false" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Chart" textAlignment="CENTER" textFill="DARKORANGE">
+                  <Button mnemonicParsing="false" onAction="#onBtnChart" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Chart" textAlignment="CENTER" textFill="DARKORANGE">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -78,7 +105,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button styleClass="menuItem" onAction="#onBtnLogout" mnemonicParsing="false" prefHeight="34.0" prefWidth="100.0" style="-fx-background-color: #E9E9E9;">
+                  <Button mnemonicParsing="false" onAction="#onBtnLogout" prefHeight="34.0" prefWidth="100.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem">
                      <graphic>
                         <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -90,9 +117,9 @@
                </children>
             </HBox>
          </top>
-         <left>
+         <center>
             <HBox fx:id="d" prefHeight="300.0" prefWidth="500.0" stylesheets="@../style/style.css" BorderPane.alignment="CENTER" />
-         </left>
+         </center>
       </BorderPane>
    </children>
 </StackPane>

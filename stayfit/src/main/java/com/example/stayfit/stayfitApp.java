@@ -24,7 +24,7 @@ public class stayfitApp extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(stayfitApp.class.getResource("view/login.fxml"));
         currentStage.getIcons().add(new Image(stayfitApp.class.getResourceAsStream("images/logo.jpg")));
 
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 700, 450);
 
         currentStage.setTitle("Stayfit");
         currentStage.setScene(scene);

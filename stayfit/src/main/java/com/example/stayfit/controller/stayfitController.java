@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -44,5 +45,12 @@ abstract class stayfitController {
 
     public void onBtnCalculator(ActionEvent actionEvent) throws IOException {
         getNewStage("calculator");
+    }
+
+    protected void createAlertAndShow(Alert.AlertType type, String title, String content){
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 }

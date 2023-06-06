@@ -65,13 +65,6 @@ public class loginController extends stayfitController {
         }
     }
 
-    private void createAlertAndShow(Alert.AlertType type, String title, String content){
-        Alert alert = new Alert(type);
-        alert.setTitle(title);
-        alert.setContentText(content);
-        alert.showAndWait();
-    }
-
     private List<User> getFilteredUsers(List<User> users, Predicate<User> predicate){
         return users.stream().filter(predicate).collect(Collectors.toList());
     }

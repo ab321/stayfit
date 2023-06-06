@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Tue Jun 06 10:35:56 CEST 2023:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0188-8fd9-347a-00000ec87138 
+Tue Jun 06 11:10:49 CEST 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0188-8ff9-21e4-00000edbfdf8 
 on database directory C:\Users\salko\3BHIF\PR-Java\stayfit\stayfit\stayfit-db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@312b1dae 
 Loaded from file:/C:/Users/salko/.m2/repository/org/apache/derby/derby/10.15.2.0/derby-10.15.2.0.jar
 java.vendor=Oracle Corporation

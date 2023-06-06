@@ -3,17 +3,27 @@ package com.example.stayfit.model.repository;
 import com.example.stayfit.model.Database;
 import com.example.stayfit.model.entity.Exercise;
 import com.example.stayfit.stayfitApp;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import javax.sql.DataSource;
 
 public class ExerciseRepository implements Persistent<Exercise> {
     private static Connection connection = Database.openConnection();
+    private static ObservableList<Exercise> exercises = FXCollections.observableList(new LinkedList<>());
 
     public ExerciseRepository(){
         connection = stayfitApp.getConnection();
+        this.findAll();
+    }
+
+    public ObservableList<Exercise> getExercises() throws SQLException {
+        return FXCollections.unmodifiableObservableList(this.exercises);
     }
 
     @Override
@@ -65,6 +75,8 @@ public class ExerciseRepository implements Persistent<Exercise> {
             if(statement.executeUpdate() == 0){
                 throw new SQLException("Delete from S_Exercise failed, no rows affected");
             }
+
+            exercises.remove(exercise);
             exercise.setId(null);
         }catch (SQLException e) {
             e.printStackTrace();
@@ -72,10 +84,7 @@ public class ExerciseRepository implements Persistent<Exercise> {
     }
 
     @Override
-    public List<Exercise> findAll() {
-        List<Exercise> exerciseList = new ArrayList<>();
-
-
+    public ObservableList<Exercise> findAll() {
         try {
             String sql = "SELECT * FROM S_EXERCISE";
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -87,14 +96,14 @@ public class ExerciseRepository implements Persistent<Exercise> {
                 Exercise exercise = new Exercise(name);
                 exercise.setId(id);
 
-                exerciseList.add(exercise);
+                exercises.add(exercise);
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return exerciseList;
+        return null;
     }
 
     @Override

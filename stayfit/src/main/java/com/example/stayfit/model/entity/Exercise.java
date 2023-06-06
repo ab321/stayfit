@@ -30,9 +30,6 @@ public class Exercise {
 
     @Override
     public String toString() {
-        return "Exercise{" +
-                "exercise_nr=" + id +
-                ", exercise_name=" + getName() + '\'' +
-                '}';
+        return this.getName();
     }
 }

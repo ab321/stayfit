@@ -28,4 +28,12 @@ public class Database {
             throw new RuntimeException("Cannot close database", e);
         }
     }
+
+    public static void shutdownDatabase(){
+        try {
+            DriverManager.getConnection("jdbc:derby:;shutdown=true");
+        }catch (SQLException e){
+
+        }
+    }
 }

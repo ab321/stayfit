@@ -86,6 +86,11 @@ public class ExerciseRepository implements Persistent<Exercise> {
     @Override
     public ObservableList<Exercise> findAll() {
         try {
+
+            if (connection == null) {
+                connection = Database.openConnection();
+            }
+
             String sql = "SELECT * FROM S_EXERCISE";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet result = statement.executeQuery();
@@ -103,7 +108,7 @@ public class ExerciseRepository implements Persistent<Exercise> {
             e.printStackTrace();
         }
 
-        return null;
+        return exercises;
     }
 
     @Override

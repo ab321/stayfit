@@ -40,6 +40,12 @@ public class stayfitApp extends Application {
         });
     }
 
+    @Override
+    public void stop() throws Exception {
+        Database.shutdownDatabase();
+        super.stop();
+    }
+
     public static Connection getConnection(){
         return connection;
     }

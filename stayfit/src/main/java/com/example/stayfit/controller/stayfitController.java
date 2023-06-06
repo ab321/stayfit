@@ -41,9 +41,6 @@ abstract class stayfitController {
         getNewStage("exercise");
     }
 
-    public void onBtnChart(ActionEvent actionEvent) throws IOException {
-        getNewStage("chart");
-    }
 
     public void onBtnCalculator(ActionEvent actionEvent) throws IOException {
         getNewStage("calculator");

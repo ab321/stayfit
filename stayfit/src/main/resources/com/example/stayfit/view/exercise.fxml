@@ -14,7 +14,7 @@
                   <Font size="13.0" />
                </font>
             </Button>
-            <TextField editable="true" fx:id="searchField" layoutX="62.0" layoutY="119.0" prefHeight="26.0" prefWidth="144.0" style="-fx-border-color: #ff8c00; -fx-background-color: #E9E9E9;" />
+            <TextField fx:id="searchField" editable="true" layoutX="62.0" layoutY="119.0" prefHeight="26.0" prefWidth="144.0" style="-fx-border-color: #ff8c00; -fx-background-color: #E9E9E9;" />
             <Label layoutX="300.0" layoutY="55.0" prefHeight="54.0" prefWidth="100.0" styleClass="title" text="Übungen" textFill="DARKORANGE">
                <font>
                   <Font name="System Bold" size="22.0" />
@@ -40,86 +40,76 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField editable="true" fx:id="nameField" layoutX="453.0" layoutY="209.0" prefHeight="27.0" prefWidth="189.0" style="-fx-border-color: #ff8c00; -fx-background-color: #E9E9E9;" />
+            <TextField fx:id="nameField" editable="true" layoutX="453.0" layoutY="209.0" prefHeight="27.0" prefWidth="189.0" style="-fx-border-color: #ff8c00; -fx-background-color: #E9E9E9;" />
+            <BorderPane prefHeight="54.0" prefWidth="700.0">
+               <top>
+                  <HBox alignment="TOP_CENTER" prefHeight="37.0" prefWidth="600.0" style="-fx-background-color: #E9E9E9;" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Übungen" textFill="#ff8c00">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/uebungen-icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#onBtnHistory" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Verlauf" textFill="DARKORANGE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/verlauf-icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#onBtnTemplate" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Vorlagen" textFill="DARKORANGE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/vorlagen-icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#onBtnCalculator" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Rechner" textFill="DARKORANGE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/rechner-icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#onBtnLogout" prefHeight="34.0" prefWidth="100.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/logout-logo.jpg" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </HBox>
+               </top>
+               <center>
+                  <HBox fx:id="d" prefHeight="300.0" prefWidth="500.0" stylesheets="@../style/style.css" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
          </children>
       </AnchorPane>
-      <BorderPane prefHeight="200.0" prefWidth="200.0">
-         <top>
-            <HBox alignment="TOP_CENTER" prefHeight="37.0" prefWidth="600.0" style="-fx-background-color: #E9E9E9;" BorderPane.alignment="CENTER">
-               <children>
-                  <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Übungen" textFill="#ff8c00">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/uebungen-icon.png" />
-                           </image></ImageView>
-                     </graphic>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#onBtnHistory" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Verlauf" textFill="DARKORANGE">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/verlauf-icon.png" />
-                           </image></ImageView>
-                     </graphic>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#onBtnTemplate" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Vorlagen" textFill="DARKORANGE">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/vorlagen-icon.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#onBtnCalculator" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Rechner" textFill="DARKORANGE">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/rechner-icon.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#onBtnChart" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Chart" textAlignment="CENTER" textFill="DARKORANGE">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/chart-icon.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#onBtnLogout" prefHeight="34.0" prefWidth="100.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem">
-                     <graphic>
-                        <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/logout-logo.jpg" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-               </children>
-            </HBox>
-         </top>
-         <center>
-            <HBox fx:id="d" prefHeight="300.0" prefWidth="500.0" stylesheets="@../style/style.css" BorderPane.alignment="CENTER" />
-         </center>
-      </BorderPane>
    </children>
 </StackPane>

@@ -10,7 +10,7 @@ public class Database {
 
     public static Connection openConnection(){
         try {
-            connection = DriverManager.getConnection("jdbc:derby:stayfit-db");
+            connection = DriverManager.getConnection("jdbc:derby:db");
             connection.setAutoCommit(true);
             return connection;
         } catch (SQLException e) {

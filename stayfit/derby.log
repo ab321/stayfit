@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Thu Jun 08 16:59:23 CEST 2023:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0188-9b84-f898-00000ec87c80 
+Fri Jun 09 15:05:36 CEST 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0188-a043-27d5-00000ea01768 
 on database directory C:\Users\salko\3BHIF\PR-Java\stayfit\stayfit\db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@312b1dae 
 Loaded from file:/C:/Users/salko/.m2/repository/org/apache/derby/derby/10.15.2.0/derby-10.15.2.0.jar
 java.vendor=Oracle Corporation
@@ -12,8 +12,8 @@ os.version=10.0
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Thu Jun 08 16:59:58 CEST 2023: Shutting down Derby engine
+Fri Jun 09 15:05:56 CEST 2023: Shutting down Derby engine
 ----------------------------------------------------------------
-Thu Jun 08 16:59:58 CEST 2023:
-Shutting down instance a816c00e-0188-9b84-f898-00000ec87c80 on database directory C:\Users\salko\3BHIF\PR-Java\stayfit\stayfit\db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@312b1dae 
+Fri Jun 09 15:05:56 CEST 2023:
+Shutting down instance a816c00e-0188-a043-27d5-00000ea01768 on database directory C:\Users\salko\3BHIF\PR-Java\stayfit\stayfit\db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@312b1dae 
 ----------------------------------------------------------------

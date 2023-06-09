@@ -7,15 +7,19 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.ListChangeListener;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 import java.io.IOException;
 import java.sql.SQLException;
 
 public class exerciseController extends stayfitController {
+    @FXML
     public ListView exerciseLv;
     public TextField searchField;
     public TextField nameField;
@@ -56,11 +60,13 @@ public class exerciseController extends stayfitController {
 
             }
         });
+
+
     }
 
     public void onBtnAdd(ActionEvent actionEvent) {
         try{
-            if(!nameField.getText().isEmpty()){
+            if(nameField.getText().isEmpty()){
                 throw new Exception();
             }
             Exercise exercise = new Exercise(nameField.getText());
@@ -79,6 +85,19 @@ public class exerciseController extends stayfitController {
     }
 
     public void onBtnSave(ActionEvent actionEvent) {
+        try{
+            Exercise exercise = (Exercise) exerciseLv.getSelectionModel().getSelectedItem();
+            exercise.setName(nameField.getText());
+
+            if(exercise == null)
+                throw new Exception();
+
+            this.exerciseRepository.save(exercise);
+        }
+        catch (Exception e){
+            createAlertAndShow(Alert.AlertType.ERROR, "Error",
+                    "Es wurde keine Übung ausgewählt");
+        }
     }
 
     public void onBtnDelete(ActionEvent actionEvent) {
@@ -87,6 +106,19 @@ public class exerciseController extends stayfitController {
         }
         catch (Exception e){
             createAlertAndShow(Alert.AlertType.ERROR, "Error", "Übung konnte nicht gelöscht werden");
+        }
+    }
+
+    public void onListViewKeyPressed(KeyEvent keyEvent) {
+        if (keyEvent.getCode() == KeyCode.ESCAPE) {
+            exerciseLv.getSelectionModel().clearSelection();
+            nameField.setText("");
+        }
+    }
+
+    public void onKeyPressed(KeyEvent keyEvent) {
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+            onBtnSearch(null);
         }
     }
 }

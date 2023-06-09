@@ -51,6 +51,8 @@ public class ExerciseRepository implements Persistent<Exercise> {
                 throw new SQLException("Insert of Exercise failed, no rows affected");
             }
 
+            exercises.add(exercise);
+
             try(ResultSet keys = statement.getGeneratedKeys()) {
                 if(keys.next()){
                     exercise.setId(keys.getLong(1));
@@ -153,6 +155,9 @@ public class ExerciseRepository implements Persistent<Exercise> {
             if (statement.executeUpdate() == 0) {
                 throw new SQLException("Update of S_EXERCISE failed, no rows affected");
             }
+
+            Exercise e = this.exercises.stream().filter(ex -> ex.getId() == exercise.getId()).findFirst().get();
+            e.setName(exercise.getName());
 
         } catch (SQLException e) {
             e.printStackTrace();

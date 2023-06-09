@@ -1,5 +1,6 @@
 package com.example.stayfit.controller;
 
+import com.example.stayfit.model.entity.User;
 import com.example.stayfit.stayfitApp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,6 +14,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 abstract class stayfitController {
+    protected static User currentUser;
 
     protected void getNewStage(String name) throws IOException {
         Stage stage = stayfitApp.getCurrentStage();

@@ -52,6 +52,8 @@ public class loginController extends stayfitController {
                     passwordField.setText("");
                     return;
                 }
+
+                currentUser = user;
             }
 
             failedLoginLabel.setText("");
@@ -89,10 +91,12 @@ public class loginController extends stayfitController {
                 return;
             }
 
-            userRepository.insert(new User(userNameField.getText(),
-                    passwordField.getText()));
+            User user = new User(userNameField.getText(),
+                    passwordField.getText());
+            userRepository.insert(user);
 
             failedLoginLabel.setText("");
+            currentUser = user;
             getNewStage("template");
         }
         catch (Exception ex){

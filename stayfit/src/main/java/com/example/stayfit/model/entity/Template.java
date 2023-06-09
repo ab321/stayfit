@@ -41,10 +41,6 @@ public class Template {
 
     @Override
     public String toString() {
-        return "Template{" +
-                "template_nr=" + id +
-                ", user_id=" + getUser().getId() +
-                ", name='" + name + '\'' +
-                '}';
+        return this.name;
     }
 }

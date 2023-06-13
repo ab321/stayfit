@@ -15,9 +15,10 @@ import javax.sql.DataSource;
 
 public class ExerciseRepository implements Persistent<Exercise> {
     private static Connection connection = Database.openConnection();
-    private static ObservableList<Exercise> exercises = FXCollections.observableList(new LinkedList<>());
+    private static ObservableList<Exercise> exercises;
 
     public ExerciseRepository(){
+        exercises = FXCollections.observableList(new LinkedList<>());
         connection = stayfitApp.getConnection();
         this.findAll();
     }

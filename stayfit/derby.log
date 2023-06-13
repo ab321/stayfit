@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ----------------------------------------------------------------
 Tue Jun 13 09:05:59 CEST 2023:
 Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0188-b393-5c1c-00000ec82680 
@@ -17,3 +18,5 @@ Tue Jun 13 09:06:13 CEST 2023: Shutting down Derby engine
 Tue Jun 13 09:06:13 CEST 2023:
 Shutting down instance a816c00e-0188-b393-5c1c-00000ec82680 on database directory C:\Users\salko\3BHIF\PR-Java\stayfit\stayfit\db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@312b1dae 
 ----------------------------------------------------------------
+=======
+>>>>>>> 8fca71f4e5a2f1f35c9bd03407dc21977f291207

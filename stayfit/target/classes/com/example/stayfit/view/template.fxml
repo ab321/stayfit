@@ -45,7 +45,7 @@
                     <top>
                         <HBox alignment="TOP_CENTER" prefHeight="37.0" prefWidth="600.0" style="-fx-background-color: #E9E9E9;" BorderPane.alignment="CENTER">
                             <children>
-                                <Button onAction="#onBtnExercise" mnemonicParsing="false" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Übungen" textFill="#ff8c00">
+                                <Button mnemonicParsing="false" onAction="#onBtnExercise" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Übungen" textFill="#ff8c00">
                                     <font>
                                         <Font size="14.0" />
                                     </font>
@@ -109,6 +109,11 @@
                         <HBox fx:id="d" prefHeight="300.0" prefWidth="500.0" stylesheets="@../style/style.css" BorderPane.alignment="CENTER" />
                     </center>
                 </BorderPane>
+            <Button layoutX="377.0" layoutY="369.0" mnemonicParsing="false" onAction="#onBtnDetails" prefHeight="27.0" prefWidth="225.0" style="-fx-background-color: #E9E9E9;" styleClass="btn" text="Details" textFill="DARKORANGE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
             </children>
         </AnchorPane>
     </children>

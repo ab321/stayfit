@@ -28,14 +28,14 @@ public class ExercisePositionTest {
         Template template = new Template();
         Exercise exercise = new Exercise();
 
-        ExercisePosition exercisePosition = new ExercisePosition(exercise, template);
+        ExercisePosition exercisePosition = new ExercisePosition(exercise.getId(), template.getId());
 
         //act
 
         //assert
         assertThat(exercisePosition.getId()).isNull();
-        assertThat(exercisePosition.getExercise().getId()).isNull();
-        assertThat(exercisePosition.getTemplate().getId()).isNull();
+        assertThat(exercisePosition.getExerciseNr()).isNull();
+        assertThat(exercisePosition.getTemplateNr()).isNull();
 
     }
 }

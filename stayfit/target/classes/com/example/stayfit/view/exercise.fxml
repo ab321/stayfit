@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane onKeyPressed="#onKeyPressed" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stayfit.controller.exerciseController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#onKeyPressed" prefHeight="450.0" prefWidth="700.0" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stayfit.controller.exerciseController">
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0">
          <children>
@@ -20,7 +20,7 @@
                   <Font name="System Bold" size="22.0" />
                </font>
             </Label>
-            <ListView fx:id="exerciseLv" layoutX="62.0" onKeyPressed="#onListViewKeyPressed" layoutY="155.0" prefHeight="264.0" prefWidth="238.0" style="-fx-border-color: #ff8c00; -fx-background-color: #E9E9E9;" />
+            <ListView fx:id="exerciseLv" layoutX="62.0" layoutY="155.0" onKeyPressed="#onListViewKeyPressed" prefHeight="264.0" prefWidth="238.0" style="-fx-border-color: #ff8c00; -fx-background-color: #E9E9E9;" />
             <Button layoutX="222.0" layoutY="119.0" mnemonicParsing="false" onAction="#onBtnSearch" prefHeight="14.0" prefWidth="78.0" style="-fx-background-color: #E9E9E9;" styleClass="btn" text="Suchen" textFill="DARKORANGE">
                <font>
                   <Font size="13.0" />
@@ -109,6 +109,11 @@
                   <HBox fx:id="d" prefHeight="300.0" prefWidth="500.0" stylesheets="@../style/style.css" BorderPane.alignment="CENTER" />
                </center>
             </BorderPane>
+            <Button layoutX="381.0" layoutY="351.0" mnemonicParsing="false" onAction="#onAddToTemplate" prefHeight="27.0" prefWidth="218.0" style="-fx-background-color: #E9E9E9;" styleClass="btn" text="Zur Vorlage hinzufügen" textFill="DARKORANGE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>

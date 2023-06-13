@@ -9,14 +9,20 @@ import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
+
+import static com.example.stayfit.controller.TemplateListController.selectedExercise;
 
 public class exerciseController extends stayfitController {
     @FXML
@@ -119,6 +125,21 @@ public class exerciseController extends stayfitController {
     public void onKeyPressed(KeyEvent keyEvent) {
         if (keyEvent.getCode() == KeyCode.ENTER) {
             onBtnSearch(null);
+        }
+    }
+
+    public void onAddToTemplate(ActionEvent actionEvent) {
+        try {
+            selectedExercise = (Exercise) exerciseLv.getSelectionModel().getSelectedItem();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/stayfit/view/templateList.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Template List");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

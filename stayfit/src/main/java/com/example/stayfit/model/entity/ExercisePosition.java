@@ -2,45 +2,44 @@ package com.example.stayfit.model.entity;
 
 public class ExercisePosition {
     private Long id;
-    private Exercise exercise;
-    private Template template;
+    private Long exerciseNr;
+    private Long templateNr;
 
     public ExercisePosition(){ }
-    public ExercisePosition(Exercise exercise, Template template) {
-        this.exercise = exercise;
-        this.template = template;
+    public ExercisePosition(Long exerciseNr, Long templateNr) {
+        this.exerciseNr = exerciseNr;
+        this.templateNr = templateNr;
     }
 
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
 
-    public Exercise getExercise() {
-        return exercise;
+    public Long getExerciseNr() {
+        return exerciseNr;
     }
 
-    public void setExercise(Exercise exercise) {
-        this.exercise = exercise;
+    public void setExerciseNr(Long exerciseNr) {
+        this.exerciseNr = exerciseNr;
     }
 
-    public Template getTemplate() {
-        return template;
+    public Long getTemplateNr() {
+        return templateNr;
     }
 
-    public void setTemplate(Template template) {
-        this.template = template;
+    public void setTemplateNr(Long templateNr) {
+        this.templateNr = templateNr;
     }
 
     @Override
     public String toString() {
         return "ExercisePosition{" +
                 "ExercisePosition_nr=" + id +
-                ", exercise_nr=" + getExercise().getId() +
-                ", template_nr=" + getTemplate().getId() +
+                ", exercise_nr=" + getExerciseNr() +
+                ", template_nr=" + getTemplateNr() +
                 '}';
     }
 }

@@ -79,8 +79,81 @@
                 </HBox>
             </top>
             <left>
-                <HBox fx:id="d" prefHeight="300.0" prefWidth="500.0" stylesheets="@../style/style.css" BorderPane.alignment="CENTER" />
+                <VBox alignment="CENTER_LEFT" prefHeight="500.0" prefWidth="700.0">
+                    <children>
+                        <HBox alignment="CENTER_LEFT">
+                            <children>
+                                <Text text="Age" />
+                                <Slider fx:id="ageSlider" max="100" min="14" prefHeight="40.0" prefWidth="611.0" VBox.vgrow="ALWAYS" />
+                                <Label fx:id="ageLabel" text="" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT">
+                            <children>
+                                <Text text="Height" />
+                                <Slider fx:id="heightSlider" max="220" min="100" prefHeight="40.0" prefWidth="594.0" VBox.vgrow="ALWAYS" />
+                                <Label fx:id="heightLabel" text="" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT">
+                            <children>
+                                <Text text="Weight" />
+                                <Slider fx:id="weightSlider" max="200" min="30" prefHeight="40.0" prefWidth="591.0" VBox.vgrow="ALWAYS" />
+                                <Label fx:id="weightLabel" text="" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT">
+                            <children>
+                                <Text text="Walking" />
+                                <Slider fx:id="walkingSlider" max="30" min="0" prefHeight="40.0" prefWidth="588.0" VBox.vgrow="ALWAYS" />
+                                <Label fx:id="walkingLabel" text="" />
+
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT">
+                            <children>
+                                <Text text="Cardio" />
+                                <Slider fx:id="cardioSlider" max="20" min="0" prefHeight="40.0" prefWidth="599.0" VBox.vgrow="ALWAYS" />
+                                <Label fx:id="cardioLabel" text="" />
+                            </children>
+                        </HBox>
+
+                        <HBox alignment="CENTER">
+                            <children>
+                                <Button fx:id="calculateButton" mnemonicParsing="false" onAction="#calculate" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" text="Berechnen" textFill="DARKORANGE">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                        </HBox>
+
+                        <VBox spacing="20">
+                            <HBox alignment="CENTER_LEFT">
+                                <children>
+                                    <Label fx:id="gainWeightLabel" />
+                                </children>
+                            </HBox>
+
+                            <HBox alignment="CENTER_LEFT">
+                                <children>
+                                    <Label fx:id="stayWeightLabel" />
+                                </children>
+                            </HBox>
+
+                            <HBox alignment="CENTER_LEFT">
+                                <children>
+                                    <Label fx:id="loseWeightLabel" />
+                                </children>
+                            </HBox>
+                        </VBox>
+
+
+                    </children>
+
+                </VBox>
             </left>
+
         </BorderPane>
     </children>
 </StackPane>

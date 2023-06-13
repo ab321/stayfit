@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane onKeyPressed="#onKeyPressed" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stayfit.controller.templateController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#onKeyPressed" prefHeight="450.0" prefWidth="700.0" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stayfit.controller.templateController">
     <children>
         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0">
             <children>
@@ -15,12 +15,12 @@
                     </font>
                 </Button>
                 <TextField fx:id="searchField" editable="true" layoutX="62.0" layoutY="119.0" prefHeight="26.0" prefWidth="144.0" style="-fx-border-color: #ff8c00; -fx-background-color: #E9E9E9;" />
-                <Label layoutX="300.0" layoutY="55.0" prefHeight="54.0" prefWidth="100.0" styleClass="title" text="Übungen" textFill="DARKORANGE">
+                <Label layoutX="300.0" layoutY="55.0" prefHeight="54.0" prefWidth="100.0" styleClass="title" text="Vorlagen" textFill="DARKORANGE">
                     <font>
                         <Font name="System Bold" size="22.0" />
                     </font>
                 </Label>
-                <ListView fx:id="templateLv" layoutX="62.0" onKeyPressed="#onListViewKeyPressed" layoutY="155.0" prefHeight="264.0" prefWidth="238.0" style="-fx-border-color: #ff8c00; -fx-background-color: #E9E9E9;" />
+                <ListView fx:id="templateLv" layoutX="62.0" layoutY="155.0" onKeyPressed="#onListViewKeyPressed" prefHeight="264.0" prefWidth="238.0" style="-fx-border-color: #ff8c00; -fx-background-color: #E9E9E9;" />
                 <Button layoutX="222.0" layoutY="119.0" mnemonicParsing="false" onAction="#onBtnSearch" prefHeight="14.0" prefWidth="78.0" style="-fx-background-color: #E9E9E9;" styleClass="btn" text="Suchen" textFill="DARKORANGE">
                     <font>
                         <Font size="13.0" />
@@ -45,7 +45,7 @@
                     <top>
                         <HBox alignment="TOP_CENTER" prefHeight="37.0" prefWidth="600.0" style="-fx-background-color: #E9E9E9;" BorderPane.alignment="CENTER">
                             <children>
-                                <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Übungen" textFill="#ff8c00">
+                                <Button onAction="#onBtnExercise" mnemonicParsing="false" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Übungen" textFill="#ff8c00">
                                     <font>
                                         <Font size="14.0" />
                                     </font>
@@ -69,7 +69,7 @@
                                         </ImageView>
                                     </graphic>
                                 </Button>
-                                <Button mnemonicParsing="false" onAction="#onBtnTemplate" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Vorlagen" textFill="DARKORANGE">
+                                <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Vorlagen" textFill="DARKORANGE">
                                     <font>
                                         <Font size="14.0" />
                                     </font>

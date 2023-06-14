@@ -91,4 +91,36 @@ public class ExercisePositionRepository {
 
         return exercisePositions;
     }
+
+    public ObservableList<Exercise> findWithTemplateId(Long templateId) throws SQLException{
+        try {
+            if (connection == null) {
+                connection = Database.openConnection();
+            }
+
+            String sql = "SELECT * FROM S_EXERCISEPOSITION";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet result = statement.executeQuery();
+
+            ObservableList<Exercise> exercises = FXCollections.observableArrayList();
+
+            while (result.next()) {
+                if(templateId == result.getInt("TEMPLATE_NR")) {
+                    int exerciseId = result.getInt("EXERCISE_NR");
+                    ExerciseRepository exerciseRepository = new ExerciseRepository();
+                    Exercise exercise = exerciseRepository.findById((long) exerciseId);
+
+                    exercises.add(exercise);
+                }
+
+            }
+
+            return exercises;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 }

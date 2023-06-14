@@ -1,6 +1,9 @@
 package com.example.stayfit.controller;
 
 import com.example.stayfit.model.entity.Exercise;
+import com.example.stayfit.model.entity.ExercisePosition;
+import com.example.stayfit.model.entity.Template;
+import com.example.stayfit.model.repository.ExercisePositionRepository;
 import com.example.stayfit.model.repository.ExerciseRepository;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,16 +19,19 @@ public class ExerciseListController {
     @FXML
     private ListView<Exercise> exerciseListView;
 
-    private ExerciseRepository exerciseRepository;
+    private ExercisePositionRepository exercisePositionRepository;
+
+    public static Template selectedTemplate;
 
     @FXML
     private void initialize() {
-        this.exerciseRepository = new ExerciseRepository();
+        this.exercisePositionRepository = new ExercisePositionRepository();
 
         try {
-            List<Exercise> exercises = exerciseRepository.getExercises();
-            ObservableList<Exercise> exerciseList = FXCollections.observableArrayList(exercises);
+            List<Exercise> exercises = exercisePositionRepository.findWithTemplateId(selectedTemplate.getId());
+            ObservableList<Exercise> exerciseList = FXCollections.observableList(exercises);
             exerciseListView.setItems(exerciseList);
+
         } catch (SQLException e) {
             showErrorMessage("Fehler beim Abrufen der Übungen", e.getMessage());
         }

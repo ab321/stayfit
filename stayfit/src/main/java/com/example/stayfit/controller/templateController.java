@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import static com.example.stayfit.controller.ExerciseListController.selectedTemplate;
 
 public class templateController extends stayfitController {
     @FXML
@@ -128,6 +129,7 @@ public class templateController extends stayfitController {
     @FXML
     private void onBtnDetails() {
         try {
+            selectedTemplate = (Template) templateLv.getSelectionModel().getSelectedItem();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/stayfit/view/exerciseList.fxml"));
             Parent root = loader.load();
 

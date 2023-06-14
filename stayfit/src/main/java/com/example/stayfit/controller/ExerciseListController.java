@@ -7,6 +7,7 @@ import com.example.stayfit.model.repository.ExercisePositionRepository;
 import com.example.stayfit.model.repository.ExerciseRepository;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Alert;
@@ -33,7 +34,7 @@ public class ExerciseListController {
             exerciseListView.setItems(exerciseList);
 
         } catch (SQLException e) {
-            showErrorMessage("Fehler beim Abrufen der Übungen", e.getMessage());
+            showErrorMessage("Error retrieving exercises", e.getMessage());
         }
     }
 
@@ -44,5 +45,24 @@ public class ExerciseListController {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    public void handleDeleteButtonAction(ActionEvent actionEvent) {
+
+        Exercise selectedExercise = exerciseListView.getSelectionModel().getSelectedItem();
+        if (selectedExercise != null) {
+            ExercisePositionRepository exercisePositionRepository = new ExercisePositionRepository();
+            try {
+                ExercisePosition exercisePosition = new ExercisePosition(selectedExercise.getId(), selectedTemplate.getId());
+                exercisePositionRepository.insert(exercisePosition);
+                exercisePositionRepository.deleteExerciseFromTemplate(exercisePosition);
+                exerciseListView.getItems().remove(selectedExercise);
+            } catch (SQLException e) {
+                showErrorMessage("Error deleting exercise", e.getMessage());
+            }
+        } else {
+            showErrorMessage("ERROR", "No exercise has been selected.");
+        }
+
     }
 }

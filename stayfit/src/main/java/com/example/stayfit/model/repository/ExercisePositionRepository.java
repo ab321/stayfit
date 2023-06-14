@@ -123,4 +123,23 @@ public class ExercisePositionRepository {
 
         return null;
     }
+
+    public void deleteExerciseFromTemplate(ExercisePosition exercisePosition) throws SQLException {
+        try {
+
+            String sql = "DELETE FROM S_EXERCISEPOSITION WHERE EXERCISEPOSITION_NR=?";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setLong(1, exercisePosition.getId());
+
+            if (statement.executeUpdate() == 0) {
+                throw new SQLException("Delete from S_ExercisePosition failed, no rows affected");
+            }
+
+            exercisePosition.setId(null);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

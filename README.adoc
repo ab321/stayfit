@@ -28,11 +28,6 @@ include::./plantuml/cld.puml[]
 image:GUI/Uebungen.jpg[300,300]
 ====
 
-.Verlauf
-[%collapsible]
-====
-image:GUI/Verlauf.jpg[300,300]
-====
 
 .Vorlagen
 [%collapsible]
@@ -44,10 +39,4 @@ image:GUI/Vorlagen.jpg[300,300]
 [%collapsible]
 ====
 image:GUI/Rechner.jpg[300,300]
-====
-
-.Chart
-[%collapsible]
-====
-image:GUI/Chart.jpg[300,300]
 ====

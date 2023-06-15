@@ -1,13 +1,19 @@
 ----------------------------------------------------------------
-Wed Jun 14 22:49:19 UTC 2023:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0188-bc19-5fe4-000007384f20 
-on database directory C:\00 HIF\3BHIF\PR-Java\Projekt\stayfit\stayfit\db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@42110406 
-Loaded from file:/C:/Users/abdub/AppData/Roaming/JetBrains/IntelliJIdea2022.3/jdbc-drivers/Apache%20Derby/10.15.2.0/derby-10.15.2.0.jar
-java.vendor=JetBrains s.r.o.
-java.runtime.version=17.0.5+1-b653.25
-user.dir=C:\00 HIF\3BHIF\PR-Java\Projekt\stayfit\stayfit
+Thu Jun 15 08:12:22 CEST 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0188-bdae-fe84-00000e522250 
+on database directory C:\Users\salko\3BHIF\PR-Java\stayfit\stayfit\db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@312b1dae 
+Loaded from file:/C:/Users/salko/.m2/repository/org/apache/derby/derby/10.15.2.0/derby-10.15.2.0.jar
+java.vendor=Oracle Corporation
+java.runtime.version=19+36-2238
+user.dir=C:\Users\salko\3BHIF\PR-Java\stayfit\stayfit
 os.name=Windows 11
 os.arch=amd64
 os.version=10.0
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Thu Jun 15 08:14:03 CEST 2023: Shutting down Derby engine
+----------------------------------------------------------------
+Thu Jun 15 08:14:03 CEST 2023:
+Shutting down instance a816c00e-0188-bdae-fe84-00000e522250 on database directory C:\Users\salko\3BHIF\PR-Java\stayfit\stayfit\db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@312b1dae 
+----------------------------------------------------------------

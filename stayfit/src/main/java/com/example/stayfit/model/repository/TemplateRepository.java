@@ -61,7 +61,6 @@ public class TemplateRepository implements Persistent<Template> {
                 }
             }
 
-
         } catch (SQLException e) {
             e.printStackTrace();
         }

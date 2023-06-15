@@ -53,9 +53,7 @@ public class ExerciseListController {
         if (selectedExercise != null) {
             ExercisePositionRepository exercisePositionRepository = new ExercisePositionRepository();
             try {
-                ExercisePosition exercisePosition = new ExercisePosition(selectedExercise.getId(), selectedTemplate.getId());
-                exercisePositionRepository.insert(exercisePosition);
-                exercisePositionRepository.deleteExerciseFromTemplate(exercisePosition);
+                exercisePositionRepository.deleteExerciseFromTemplate(selectedExercise.getId(), selectedTemplate.getId());
                 exerciseListView.getItems().remove(selectedExercise);
             } catch (SQLException e) {
                 showErrorMessage("Error deleting exercise", e.getMessage());

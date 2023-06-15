@@ -1,19 +1,19 @@
 ----------------------------------------------------------------
-Thu Jun 15 08:12:22 CEST 2023:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0188-bdae-fe84-00000e522250 
-on database directory C:\Users\salko\3BHIF\PR-Java\stayfit\stayfit\db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@312b1dae 
-Loaded from file:/C:/Users/salko/.m2/repository/org/apache/derby/derby/10.15.2.0/derby-10.15.2.0.jar
+Thu Jun 15 09:17:37 CEST 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0188-bdea-ba6d-00000ec88ef8 
+on database directory C:\00 HIF\3BHIF\PR-Java\Projekt\stayfit\stayfit\db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@27973e9b 
+Loaded from file:/C:/Users/abdub/.m2/repository/org/apache/derby/derby/10.15.2.0/derby-10.15.2.0.jar
 java.vendor=Oracle Corporation
-java.runtime.version=19+36-2238
-user.dir=C:\Users\salko\3BHIF\PR-Java\stayfit\stayfit
+java.runtime.version=18.0.2.1+1-1
+user.dir=C:\00 HIF\3BHIF\PR-Java\Projekt\stayfit\stayfit
 os.name=Windows 11
 os.arch=amd64
 os.version=10.0
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Thu Jun 15 08:14:03 CEST 2023: Shutting down Derby engine
+Thu Jun 15 09:18:02 CEST 2023: Shutting down Derby engine
 ----------------------------------------------------------------
-Thu Jun 15 08:14:03 CEST 2023:
-Shutting down instance a816c00e-0188-bdae-fe84-00000e522250 on database directory C:\Users\salko\3BHIF\PR-Java\stayfit\stayfit\db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@312b1dae 
+Thu Jun 15 09:18:02 CEST 2023:
+Shutting down instance a816c00e-0188-bdea-ba6d-00000ec88ef8 on database directory C:\00 HIF\3BHIF\PR-Java\Projekt\stayfit\stayfit\db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@27973e9b 
 ----------------------------------------------------------------

@@ -6,6 +6,7 @@ import com.example.stayfit.model.entity.ExercisePosition;
 import com.example.stayfit.stayfitApp;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 
 import java.sql.*;
 import java.util.LinkedList;
@@ -36,33 +37,57 @@ public class ExercisePositionRepository {
 
 
     public void insert(ExercisePosition exercisePosition) {
+        try (Connection connection = Database.openConnection()) {
+            String checkSql = "SELECT COUNT(*) FROM S_EXERCISEPOSITION WHERE EXERCISE_NR = ? AND TEMPLATE_NR = ?";
+            try (PreparedStatement checkStatement = connection.prepareStatement(checkSql)) {
+                checkStatement.setLong(1, exercisePosition.getExerciseNr());
+                checkStatement.setLong(2, exercisePosition.getTemplateNr());
 
-        try(Connection connection1 = Database.openConnection()) {
-            String sql = "INSERT INTO S_EXERCISEPOSITION(EXERCISE_NR, TEMPLATE_NR) VALUES (?, ?)";
-
-            PreparedStatement statement = connection1.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            statement.setLong(1, exercisePosition.getExerciseNr());
-            statement.setLong(2, exercisePosition.getTemplateNr());
-
-
-            if(statement.executeUpdate() == 0){
-                throw new SQLException("Insert of Exercise position failed, no rows affected");
-            }
-
-            exercisePositions.add(exercisePosition);
-
-            try(ResultSet keys = statement.getGeneratedKeys()) {
-                if(keys.next()){
-                    exercisePosition.setId(keys.getLong(1));
-                }else{
-                    throw new SQLWarning("Insert into Exercise position failed, no ID obtained");
+                try (ResultSet resultSet = checkStatement.executeQuery()) {
+                    if (resultSet.next()) {
+                        int count = resultSet.getInt(1);
+                        if (count > 0) {
+                            Alert alert = new Alert(Alert.AlertType.ERROR);
+                            alert.setTitle("Not available");
+                            alert.setHeaderText(null);
+                            alert.setContentText("Position already exists");
+                            alert.showAndWait();
+                            return;
+                        }
+                    }
                 }
             }
-        }catch (SQLException e) {
+
+            String insertSql = "INSERT INTO S_EXERCISEPOSITION(EXERCISE_NR, TEMPLATE_NR) VALUES (?, ?)";
+
+            try (PreparedStatement insertStatement = connection.prepareStatement(insertSql, Statement.RETURN_GENERATED_KEYS)) {
+                insertStatement.setLong(1, exercisePosition.getExerciseNr());
+                insertStatement.setLong(2, exercisePosition.getTemplateNr());
+
+                if (insertStatement.executeUpdate() == 0) {
+                    throw new SQLException("Insert of Exercise position failed, no rows affected");
+                }
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Saved Template");
+                alert.setHeaderText(null);
+                alert.setContentText("The exercise has been successfully added to the template");
+                alert.showAndWait();
+                exercisePositions.add(exercisePosition);
+
+                try (ResultSet keys = insertStatement.getGeneratedKeys()) {
+                    if (keys.next()) {
+                        exercisePosition.setId(keys.getLong(1));
+                    } else {
+                        throw new SQLWarning("Insert into Exercise position failed, no ID obtained");
+                    }
+                }
+            }
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
+
 
     public ObservableList<ExercisePosition> findAll() {
         try {
@@ -124,19 +149,20 @@ public class ExercisePositionRepository {
         return null;
     }
 
-    public void deleteExerciseFromTemplate(ExercisePosition exercisePosition) throws SQLException {
+    public void deleteExerciseFromTemplate(Long exerciseId, Long templateId) throws SQLException {
         try {
 
-            String sql = "DELETE FROM S_EXERCISEPOSITION WHERE EXERCISEPOSITION_NR=?";
+            String sql = "DELETE FROM S_EXERCISEPOSITION WHERE EXERCISE_NR=? AND TEMPLATE_NR=?";
 
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setLong(1, exercisePosition.getId());
+            statement.setLong(1, exerciseId);
+            statement.setLong(2, templateId);
+
 
             if (statement.executeUpdate() == 0) {
                 throw new SQLException("Delete from S_ExercisePosition failed, no rows affected");
             }
 
-            exercisePosition.setId(null);
         } catch (SQLException e) {
             e.printStackTrace();
         }

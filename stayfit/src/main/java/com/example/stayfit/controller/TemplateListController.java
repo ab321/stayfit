@@ -58,8 +58,6 @@ public class TemplateListController {
             try {
                 ExercisePosition exercisePosition = new ExercisePosition(selectedExercise.getId(), selectedTemplate.getId());
                 exercisePositionRepository.insert(exercisePosition);
-
-                showSuccessMessage("Vorlage gespeichert", "Die Übung wurde erfolgreich zur Vorlage hinzugefügt.");
             } catch (Exception e) {
                 showErrorMessage("Fehler beim Speichern der Vorlage", e.getMessage());
             }
@@ -68,13 +66,6 @@ public class TemplateListController {
         }
     }
 
-    private void showSuccessMessage(String title, String message) {
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
 
     private void showErrorMessage(String title, String message) {
         Alert alert = new Alert(AlertType.ERROR);

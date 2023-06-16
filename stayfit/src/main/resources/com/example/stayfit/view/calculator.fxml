@@ -138,15 +138,7 @@
                             </children>
                         </HBox>
 
-                        <HBox alignment="CENTER">
-                            <children>
-                                <Button fx:id="calculateButton" mnemonicParsing="false" onAction="#calculate" prefHeight="6.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" text="Berechnen" textFill="DARKORANGE">
-                                    <font>
-                                        <Font size="14.0" />
-                                    </font>
-                                </Button>
-                            </children>
-                        </HBox>
+                        <HBox alignment="CENTER" />
 
 
                         <HBox alignment="CENTER" prefHeight="48.0" prefWidth="700.0" spacing="20">

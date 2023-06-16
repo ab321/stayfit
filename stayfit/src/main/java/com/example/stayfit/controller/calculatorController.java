@@ -46,17 +46,38 @@ public class calculatorController extends stayfitController {
     @FXML
     private Label loseWeightLabel;
 
-    @FXML
-    private Button calculateButton;
-
     public void initialize() {
-        ageSlider.valueProperty().addListener((observable, oldValue, newValue) -> ageLabel.setText("" + newValue.intValue()));
-        heightSlider.valueProperty().addListener((observable, oldValue, newValue) -> heightLabel.setText(newValue.intValue() + " cm"));
-        weightSlider.valueProperty().addListener((observable, oldValue, newValue) -> weightLabel.setText(newValue.intValue() + " kg"));
-        walkingSlider.valueProperty().addListener((observable, oldValue, newValue) -> walkingLabel.setText(newValue.intValue() + " h"));
-        cardioSlider.valueProperty().addListener((observable, oldValue, newValue) -> cardioLabel.setText(newValue.intValue() + " h"));
+        ageSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            ageLabel.setText("" + newValue.intValue());
+            calculate();
+        });
 
-        calculateButton.setOnAction(event -> calculate());
+        heightSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            heightLabel.setText(newValue.intValue() + " cm");
+            calculate();
+        });
+
+        weightSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            weightLabel.setText(newValue.intValue() + " kg");
+            calculate();
+        });
+
+        walkingSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            walkingLabel.setText(newValue.intValue() + " h");
+            calculate();
+        });
+
+        cardioSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            cardioLabel.setText(newValue.intValue() + " h");
+            calculate();
+        });
+
+        ageSlider.setValue(20);
+        heightSlider.setValue(170);
+        weightSlider.setValue(70);
+        walkingSlider.setValue(7);
+        cardioSlider.setValue(3);
+
     }
 
     public void calculate() {

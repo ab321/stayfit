@@ -9,7 +9,7 @@
     <children>
         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" styleClass="title">
             <children>
-                <Label layoutX="300.0" layoutY="55.0" prefHeight="54.0" prefWidth="100.0" styleClass="title" text="Rechner" textFill="DARKORANGE">
+                <Label layoutX="300.0" layoutY="55.0" prefHeight="0.0" prefWidth="100.0" styleClass="title" text="Rechner" textFill="DARKORANGE">
                     <font>
                         <Font name="System Bold" size="22.0" />
                     </font>
@@ -78,49 +78,69 @@
                     </children>
                 </HBox>
             </top>
+
             <left>
                 <VBox alignment="CENTER_LEFT" prefHeight="500.0" prefWidth="700.0">
                     <children>
-                        <HBox alignment="CENTER_LEFT">
-                            <children>
-                                <Text text="Age" />
-                                <Slider fx:id="ageSlider" max="100" min="14" prefHeight="40.0" prefWidth="611.0" VBox.vgrow="ALWAYS" />
-                                <Label fx:id="ageLabel" text="" />
-                            </children>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT">
-                            <children>
-                                <Text text="Height" />
-                                <Slider fx:id="heightSlider" max="220" min="100" prefHeight="40.0" prefWidth="594.0" VBox.vgrow="ALWAYS" />
-                                <Label fx:id="heightLabel" text="" />
-                            </children>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT">
-                            <children>
-                                <Text text="Weight" />
-                                <Slider fx:id="weightSlider" max="200" min="30" prefHeight="40.0" prefWidth="591.0" VBox.vgrow="ALWAYS" />
-                                <Label fx:id="weightLabel" text="" />
-                            </children>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT">
-                            <children>
-                                <Text text="Walking" />
-                                <Slider fx:id="walkingSlider" max="30" min="0" prefHeight="40.0" prefWidth="588.0" VBox.vgrow="ALWAYS" />
-                                <Label fx:id="walkingLabel" text="" />
 
+                        <Pane>
+                            <Text layoutX="203.0" layoutY="17.0" text="Alter: " wrappingWidth="34.160154581069946" />
+                            <Label fx:id="ageLabel" layoutX="236.0" layoutY="4.0" prefHeight="17.0" prefWidth="62.0" text="" />
+                        </Pane>
+
+                        <HBox alignment="CENTER">
+                            <children>
+                                <Slider fx:id="ageSlider" max="100" min="14" prefHeight="10.0" prefWidth="300.0" VBox.vgrow="ALWAYS" />
                             </children>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT">
+
+                        <Pane>
+                            <Text layoutX="206.0" layoutY="35.0" text="Größe:" />
+                            <Label fx:id="heightLabel" layoutX="241.0" layoutY="21.0" prefHeight="17.0" prefWidth="46.0" text="" />
+                        </Pane>
+
+                        <HBox alignment="CENTER">
                             <children>
-                                <Text text="Cardio" />
-                                <Slider fx:id="cardioSlider" max="20" min="0" prefHeight="40.0" prefWidth="599.0" VBox.vgrow="ALWAYS" />
-                                <Label fx:id="cardioLabel" text="" />
+                                <Slider fx:id="heightSlider" max="220" min="100" prefHeight="10.0" prefWidth="300.0" VBox.vgrow="ALWAYS" />
+                            </children>
+                        </HBox>
+
+                        <Pane>
+                            <Text layoutX="207.0" layoutY="22.0" text="Gewicht:" />
+                            <Label fx:id="weightLabel" layoutX="259.0" layoutY="9.0" prefHeight="17.0" prefWidth="29.0" text="" />
+                        </Pane>
+
+                        <HBox alignment="CENTER">
+                            <children>
+                                <Slider fx:id="weightSlider" max="200" min="30" prefHeight="10.0" prefWidth="300.0" VBox.vgrow="ALWAYS" />
+                            </children>
+                        </HBox>
+
+                        <Pane>
+                            <Text layoutX="207.0" layoutY="23.0" text="Gehen:" />
+                            <Label fx:id="walkingLabel" layoutX="249.0" layoutY="8.0" prefHeight="17.0" prefWidth="23.0" text="" />
+                        </Pane>
+
+                        <HBox alignment="CENTER">
+                            <children>
+                                <Slider fx:id="walkingSlider" max="30" min="0" prefHeight="10.0" prefWidth="300.0" VBox.vgrow="ALWAYS" />
+                            </children>
+                        </HBox>
+
+                        <Pane>
+                            <Text layoutX="205.0" layoutY="28.0" text="Cardio:" />
+                            <Label fx:id="cardioLabel" layoutX="244.0" layoutY="15.0" prefHeight="17.0" prefWidth="47.0" text="" />
+                        </Pane>
+                        
+                        <HBox alignment="CENTER">
+                            <children>
+                                <Slider fx:id="cardioSlider" max="20" min="0" prefHeight="10.0" prefWidth="300.0" VBox.vgrow="ALWAYS" />
                             </children>
                         </HBox>
 
                         <HBox alignment="CENTER">
                             <children>
-                                <Button fx:id="calculateButton" mnemonicParsing="false" onAction="#calculate" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" text="Berechnen" textFill="DARKORANGE">
+                                <Button fx:id="calculateButton" mnemonicParsing="false" onAction="#calculate" prefHeight="6.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" text="Berechnen" textFill="DARKORANGE">
                                     <font>
                                         <Font size="14.0" />
                                     </font>
@@ -128,26 +148,12 @@
                             </children>
                         </HBox>
 
-                        <VBox spacing="20">
-                            <HBox alignment="CENTER_LEFT">
-                                <children>
-                                    <Label fx:id="gainWeightLabel" />
-                                </children>
-                            </HBox>
 
-                            <HBox alignment="CENTER_LEFT">
-                                <children>
-                                    <Label fx:id="stayWeightLabel" />
-                                </children>
-                            </HBox>
-
-                            <HBox alignment="CENTER_LEFT">
-                                <children>
-                                    <Label fx:id="loseWeightLabel" />
-                                </children>
-                            </HBox>
-                        </VBox>
-
+                        <HBox alignment="CENTER" prefHeight="48.0" prefWidth="700.0" spacing="20">
+                            <Label fx:id="gainWeightLabel" />
+                            <Label fx:id="stayWeightLabel" />
+                            <Label fx:id="loseWeightLabel" />
+                        </HBox>
 
                     </children>
 

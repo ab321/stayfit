@@ -13,7 +13,7 @@
 }
 
 .slider .track {
-    -fx-background-color: linear-gradient(to right, darkorange, #ff8c00);
+    -fx-background-color: linear-gradient(to right, grey, #ff8c00);
 }
 
 .slider .thumb {

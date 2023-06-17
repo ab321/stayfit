@@ -58,6 +58,7 @@ public class TemplateListController {
             try {
                 ExercisePosition exercisePosition = new ExercisePosition(selectedExercise.getId(), selectedTemplate.getId());
                 exercisePositionRepository.insert(exercisePosition);
+                templateListView.getScene().getWindow().hide();
             } catch (Exception e) {
                 showErrorMessage("Fehler beim Speichern der Vorlage", e.getMessage());
             }

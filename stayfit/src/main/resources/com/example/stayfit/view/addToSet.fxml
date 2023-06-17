@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="250.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stayfit.controller.addSetController">
+   <children>
+      <Label alignment="CENTER" layoutX="25.0" layoutY="26.0" prefHeight="26.0" prefWidth="114.0" text="Übung" textFill="DARKORANGE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label alignment="CENTER" layoutX="25.0" layoutY="71.0" prefHeight="26.0" prefWidth="114.0" text="Vorlage" textFill="DARKORANGE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label alignment="CENTER" layoutX="25.0" layoutY="112.0" prefHeight="26.0" prefWidth="114.0" text="Wiederholungen" textFill="DARKORANGE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label alignment="CENTER" layoutX="25.0" layoutY="155.0" prefHeight="26.0" prefWidth="114.0" text="Gewicht (kg)" textFill="DARKORANGE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <TextField fx:id="exerciseField" editable="false" layoutX="181.0" layoutY="26.0" prefHeight="26.0" prefWidth="159.0" style="-fx-border-color: #ff8c00; -fx-background-color: #E9E9E9;" />
+      <TextField fx:id="templateField" editable="false" layoutX="181.0" layoutY="71.0" prefHeight="26.0" prefWidth="159.0" style="-fx-border-color: #ff8c00; -fx-background-color: #E9E9E9;" />
+      <Button layoutX="301.0" layoutY="211.0" mnemonicParsing="false" onAction="#onBtnAdd" style="-fx-background-color: #E9E9E9;" text="Hinzufügen" textFill="DARKORANGE" />
+      <Spinner fx:id="repSpinner" layoutX="181.0" layoutY="111.0" max="100" min="1" prefHeight="27.0" prefWidth="159.0" style="-fx-border-color: #ff8c00; -fx-background-color: #E9E9E9;" />
+      <TextField fx:id="weightField" layoutX="181.0" layoutY="154.0" prefHeight="26.0" prefWidth="159.0" style="-fx-border-color: #ff8c00; -fx-background-color: #E9E9E9;" />
+   </children>
+</AnchorPane>

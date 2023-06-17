@@ -3,19 +3,33 @@ package com.example.stayfit.model.repository;
 import com.example.stayfit.model.Database;
 import com.example.stayfit.model.entity.Exercise;
 import com.example.stayfit.model.entity.Set;
+import com.example.stayfit.model.entity.Template;
+import com.example.stayfit.model.entity.User;
 import com.example.stayfit.stayfitApp;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.sql.Connection;
+import java.util.LinkedList;
 import java.util.List;
 import java.sql.*;
 import java.util.ArrayList;
 import javax.sql.DataSource;
 
 public class SetRepository  implements Persistent<Set> {
-    private static Connection connection = null;
+    private static Connection connection = Database.openConnection();
+    private User currentUser;
+    private static ObservableList<Set> sets;
 
-    public SetRepository(){
+    public SetRepository(User user){
+        currentUser = user;
+        sets = FXCollections.observableList(new LinkedList<>());
         connection = stayfitApp.getConnection();
+        this.findAll();
+    }
+
+    public ObservableList<Set> getSets() throws SQLException {
+        return FXCollections.unmodifiableObservableList(this.sets);
     }
 
     @Override
@@ -30,16 +44,21 @@ public class SetRepository  implements Persistent<Set> {
     @Override
     public void insert(Set set) {
         try {
-            String sql = "INSERT INTO S_SET(EXERCISE_NR, SET_WEIGHT, SET_REPS) VALUES (?,?,?,?)";
+            String sql = "INSERT INTO S_SET(EXERCISE_NR, SET_USER_ID, SET_TEMPLATE_NR, SET_WEIGHT, SET_DATE, SET_REPS) VALUES (?, ?, ?, ?, ?, ?)";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setLong(1, set.getExercise().getId());
-            statement.setLong(2, set.getWeight());
-            statement.setLong(3, set.getReps());
+            statement.setLong(2, set.getUser().getId());
+            statement.setLong(3, set.getTemplate().getId());
+            statement.setDouble(4, set.getWeight());
+            statement.setDate(5, (Date) set.getDate());
+            statement.setInt(6, set.getReps());
 
             if(statement.executeUpdate() == 0){
                 throw new SQLException("Insert of Set failed, no rows affected");
             }
+
+            sets.add(set);
 
             try (ResultSet keys = statement.getGeneratedKeys()){
                 if(keys.next()){
@@ -68,6 +87,7 @@ public class SetRepository  implements Persistent<Set> {
                 throw new SQLException("Delete from Set failed, no rows affected");
             }
 
+            sets.remove(set);
             set.setId(null);
 
         }catch (SQLException e){
@@ -77,32 +97,40 @@ public class SetRepository  implements Persistent<Set> {
 
     @Override
     public List<Set> findAll() {
-        List<Set> setList = new ArrayList<>();
-
         try {
-            String sql = "SELECT * FROM S_SET";
+            String sql = "SELECT * FROM S_SET WHERE SET_USER_ID=?";
 
             PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setLong(1,currentUser.getId());
             ResultSet result = statement.executeQuery();
 
             while (result.next()){
                 ExerciseRepository exerciseRepository = new ExerciseRepository();
+                TemplateRepository templateRepository = new TemplateRepository(currentUser);
+                UserRepository userRepository = new UserRepository();
 
                 Long id = result.getLong("SET_NR");
-                Long weight = result.getLong("SET_WEIGHT");
-                Long reps = result.getLong("SET_REPS");
-                Exercise exercise = exerciseRepository.findById(result.getLong("EXERCISE_NR"));
-                Set set = new Set(exercise, weight, reps);
+                double weight = result.getDouble("SET_WEIGHT");
+                int reps = result.getInt("SET_REPS");
+
+                Set set = new Set(
+                        exerciseRepository.findById(result.getLong("EXERCISE_NR")),
+                        userRepository.findById(result.getLong("SET_USER_ID")),
+                        templateRepository.findById(result.getLong("SET_TEMPLATE_NR")),
+                        weight,
+                        result.getDate("SET_DATE"),
+                        reps);
+
                 set.setId(id);
 
-                setList.add(set);
+                sets.add(set);
             }
 
         }catch (SQLException e){
             e.printStackTrace();
         }
 
-        return setList;
+        return sets;
     }
 
     @Override
@@ -116,10 +144,18 @@ public class SetRepository  implements Persistent<Set> {
             while (result.next()) {
                 if(id == result.getInt("SET_NR")) {
                     ExerciseRepository exerciseRepository = new ExerciseRepository();
-                    Long weight = result.getLong("SET_WEIGHT");
-                    Long reps = result.getLong("SET_REPS");
+                    UserRepository userRepository = new UserRepository();
+                    TemplateRepository templateRepository = new TemplateRepository(currentUser);
+                    double weight = result.getDouble("SET_WEIGHT");
+                    int reps = result.getInt("SET_REPS");
 
-                    Set set = new Set(exerciseRepository.findById(result.getLong("EXERCISE_NR")), weight, reps);
+                    Set set = new Set(
+                            exerciseRepository.findById(result.getLong("EXERCISE_NR")),
+                            userRepository.findById(result.getLong("SET_USER_ID")),
+                            templateRepository.findById(result.getLong("SET_TEMPLATE_NR")),
+                            weight,
+                            result.getDate("SET_DATE"),
+                            reps);
 
                     return set;
                 }
@@ -136,19 +172,27 @@ public class SetRepository  implements Persistent<Set> {
     @Override
     public void update(Set set) {
         try {
-            String sql = "UPDATE S_SET SET EXERCISE_NR=?,SET_WEIGHT, SET_REPS=? WHERE SET_NR=?";
+            String sql = "UPDATE S_SET SET EXERCISE_NR=?, SET_USER_ID=?, SET_TEMPLATE_NR=?, SET_WEIGHT=?, SET_DATE=?, SET_REPS=? WHERE SET_NR=?";
 
             PreparedStatement statement = connection.prepareStatement(sql);
 
             statement.setLong(1, set.getExercise().getId());
-            statement.setLong(2, set.getWeight());
-            statement.setLong(3, set.getReps());
-            statement.setLong(4, set.getId());
+            statement.setLong(2, set.getUser().getId());
+            statement.setLong(3, set.getTemplate().getId());
+            statement.setDouble(4, set.getWeight());
+            statement.setDate(5, (Date) set.getDate());
+            statement.setInt(6, set.getReps());
+            statement.setLong(7, set.getId());
 
 
             if (statement.executeUpdate() == 0) {
                 throw new SQLException("Update of Set failed, no rows affected");
             }
+
+            Set s = this.sets.stream().filter(se -> se.getId() == set.getId()).findFirst().get();
+            s.setExercise(set.getExercise());
+            s.setReps(set.getReps());
+            s.setWeight(set.getWeight());
 
         } catch (SQLException e) {
             e.printStackTrace();

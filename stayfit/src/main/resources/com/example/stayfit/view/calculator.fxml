@@ -31,7 +31,7 @@
                                     </image></ImageView>
                             </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#onBtnHistory" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Verlauf" textFill="DARKORANGE">
+                        <Button mnemonicParsing="false" onAction="#onBtnSet" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #E9E9E9;" styleClass="menuItem" text="Set" textFill="DARKORANGE">
                             <font>
                                 <Font size="14.0" />
                             </font>

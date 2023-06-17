@@ -1,5 +1,6 @@
 package com.example.stayfit.controller;
 
+import com.example.stayfit.model.entity.Set;
 import com.example.stayfit.model.entity.User;
 import com.example.stayfit.stayfitApp;
 import javafx.event.ActionEvent;
@@ -15,6 +16,7 @@ import java.io.IOException;
 
 abstract class stayfitController {
     protected static User currentUser;
+    protected static Set currentSet;
 
     protected void getNewStage(String name) throws IOException {
         Stage stage = stayfitApp.getCurrentStage();
@@ -36,8 +38,8 @@ abstract class stayfitController {
         getNewStage("template");
     }
 
-    public void onBtnHistory(ActionEvent actionEvent) throws IOException {
-        getNewStage("history");
+    public void onBtnSet(ActionEvent actionEvent) throws IOException {
+        getNewStage("set");
     }
 
     public void onBtnExercise(ActionEvent actionEvent) throws IOException {
@@ -55,4 +57,13 @@ abstract class stayfitController {
         alert.setContentText(content);
         alert.showAndWait();
     }
+
+    public void setCurrentSet(Set currentSet) {
+        this.currentSet = currentSet;
+    }
+
+    public Set getCurrentSet() {
+        return currentSet;
+    }
+
 }

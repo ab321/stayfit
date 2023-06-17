@@ -1,18 +1,27 @@
 package com.example.stayfit.model.entity;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 public class Set {
     private Long id;
     private Exercise exercise;
-    private Long weight;
-    private Long reps;
+    private double weight;
+    private int reps;
+    private java.util.Date date;
+    private Template template;
+    private User user;
 
     public Set(){
 
     }
-    public Set(Exercise exercise, Long weight, Long reps) {
+    public Set(Exercise exercise, User user, Template template, Double weight, java.util.Date date, int reps) {
         this.exercise = exercise;
         this.weight = weight;
         this.reps = reps;
+        this.user = user;
+        this.template = template;
+        this.date = date;
     }
 
     public Long getId() {
@@ -31,29 +40,48 @@ public class Set {
         this.exercise = exercise;
     }
 
-    public Long getWeight() {
+    public double getWeight() {
         return weight;
     }
 
-    public void setWeight(Long weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 
-    public Long getReps() {
+    public int getReps() {
         return reps;
     }
 
-    public void setReps(Long reps) {
+    public void setReps(int reps) {
         this.reps = reps;
+    }
+
+    public java.util.Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Template getTemplate() {
+        return template;
+    }
+
+    public void setTemplate(Template template) {
+        this.template = template;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
     public String toString() {
-        return "Set{" +
-                "set_nr=" + id +
-                ", exercise_nr=" + getExercise().getId() +
-                ", set_weight=" + weight +
-                ", set_reps=" + reps +
-                '}';
+        return this.getExercise().getName() + " - Set";
     }
 }

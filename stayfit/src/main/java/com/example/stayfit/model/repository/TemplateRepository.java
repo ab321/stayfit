@@ -28,6 +28,7 @@ public class TemplateRepository implements Persistent<Template> {
     public ObservableList<Template> getTemplates() throws SQLException {
         return FXCollections.unmodifiableObservableList(this.templates);
     }
+
     @Override
     public void save(Template template) {
         if(template.getId() == null){

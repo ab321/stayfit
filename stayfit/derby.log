@@ -1,13 +1,15 @@
 ----------------------------------------------------------------
-Sat Jun 17 12:05:34 UTC 2023:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0188-c93e-f28a-00000767ebb8 
-on database directory C:\Users\salko\3BHIF\PR-Java\stayfit\stayfit\db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@42110406 
-Loaded from file:/C:/Users/salko/AppData/Roaming/JetBrains/IntelliJIdea2023.1/jdbc-drivers/Apache%20Derby/10.15.2.0/derby-10.15.2.0.jar
-java.vendor=JetBrains s.r.o.
-java.runtime.version=17.0.6+10-b829.9
-user.dir=C:\Users\salko\3BHIF\PR-Java\stayfit\stayfit
+Mon Jun 19 00:16:49 CEST 2023D001 : [0] The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585), [1] a816c00e-0188-d095-0b96-00000f2e7020, [2] C:\00 HIF\3BHIF\PR-Java\Projekt\stayfit\stayfit\db, [3] jdk.internal.loader.ClassLoaders$AppClassLoader@1554909b, [4] file:/C:/Users/abdub/.m2/repository/org/apache/derby/derby/10.15.2.0/derby-10.15.2.0.jar
+java.vendor=Oracle Corporation
+java.runtime.version=18.0.2.1+1-1
+user.dir=C:\00 HIF\3BHIF\PR-Java\Projekt\stayfit\stayfit
 os.name=Windows 11
 os.arch=amd64
 os.version=10.0
 derby.system.home=null
-Database Class Loader started - derby.database.classpath=''
+C005 : [0] 
+----------------------------------------------------------------
+J003 : [0] Mon Jun 19 00:16:49 CEST 2023
+----------------------------------------------------------------
+Mon Jun 19 00:16:49 CEST 2023D002 : [0] a816c00e-0188-d095-0b96-00000f2e7020, [1] C:\00 HIF\3BHIF\PR-Java\Projekt\stayfit\stayfit\db, [2] jdk.internal.loader.ClassLoaders$AppClassLoader@1554909b
+----------------------------------------------------------------

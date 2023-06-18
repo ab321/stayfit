@@ -94,8 +94,8 @@ public class calculatorController extends stayfitController {
         int mainWeightCalories = totalCalories;
         int loseWeightCalories = totalCalories - 500;
 
-        gainWeightLabel.setText("Gewicht zunehmen: " + gainWeightCalories );
-        stayWeightLabel.setText("Gewicht halten: " + mainWeightCalories );
-        loseWeightLabel.setText("Gewicht abnehmen: " + loseWeightCalories );
+        gainWeightLabel.setText("Gewicht zunehmen: " + gainWeightCalories + " kcal" );
+        stayWeightLabel.setText("Gewicht halten: " + mainWeightCalories + " kcal");
+        loseWeightLabel.setText("Gewicht abnehmen: " + loseWeightCalories + " kcal");
     }
 }

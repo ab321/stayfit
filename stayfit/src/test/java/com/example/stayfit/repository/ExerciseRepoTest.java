@@ -18,12 +18,12 @@ public class ExerciseRepoTest {
     ArrayList<Exercise> allExercises = new ArrayList<Exercise>();
     private Connection connection;
     @BeforeEach
-    public void setUp(){
+    public void beforeEach(){
         connection = Database.openConnection();
     }
 
     @AfterEach
-    public void tearDown() {
+    public void afterEach() {
         try {
             ExerciseRepository exerciseRepository = new ExerciseRepository();
 
@@ -61,7 +61,6 @@ public class ExerciseRepoTest {
     void insert(){
         //arrange
         ExerciseRepository exerciseRepository = new ExerciseRepository();
-
         Exercise exercise = new Exercise("Bankdrucken");
 
 

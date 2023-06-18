@@ -1,37 +1,41 @@
 @startuml
-class Exercise {
+class S_Exercise {
 exerciseNr: int
 name: String
 }
 
-class Template {
+class S_Template {
 templateNr: int
 userId: int
 name: String
 }
 
-class Set {
-setNr: int
+class S_Set {
+SetNr: int
 exerciseNr: int
+userId: int
+templateNr: int
 weight: double
+Date: date
 reps: int
 }
 
-class ExercisePosition {
+class S_ExercisePosition {
 exercisePositionNr: int
 templateNr: int
 exerciseNr: int
 }
 
-class User {
+class S_User {
 id: int
 userName: String
 password: String
 }
 
-Exercise "1" -- "*" Set : > has
-Exercise "*" -- "*" Template : < includes
-User "1" -- "*" Template : > has
+S_Exercise "1" -- "*" S_Set : > has
+S_Exercise "*" -- "*" S_Template : < includes
+S_User "1" -- "*" S_Template : > has
+S_Set "*" -- "1" S_User : < has
 
-ExercisePosition .. (Exercise, Template)
+S_ExercisePosition .. (S_Exercise, S_Template)
 @enduml

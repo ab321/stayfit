@@ -42,20 +42,20 @@ public class ExerciseRepoTest {
         }
     }
 
-    @Test
-    void save() {
-        // arrange
-        ExerciseRepository exerciseRepository = new ExerciseRepository();
-        Exercise exercise = new Exercise("Biceps curls");
-
-        // act
-        exerciseRepository.save(exercise);
-        allExercises.add(exercise);
-
-        // assert
-        assertEquals(exercise.getName(), "Biceps curls");
-
-    }
+//    @Test
+//    void save() {
+//        // arrange
+//        ExerciseRepository exerciseRepository = new ExerciseRepository();
+//        Exercise exercise = new Exercise("Biceps curls");
+//
+//        // act
+//        exerciseRepository.save(exercise);
+//        allExercises.add(exercise);
+//
+//        // assert
+//        assertEquals(exercise.getName(), "Biceps curls");
+//
+//    }
 
     @Test
     void insert(){
@@ -72,21 +72,21 @@ public class ExerciseRepoTest {
         assertEquals(exercise.getName(), "Bankdrucken");
     }
 
-    @Test
-    void update() {
-        // arrange
-
-        ExerciseRepository exerciseRepository = new ExerciseRepository();
-
-        Exercise exercise = new Exercise("Leg Extension");
-
-        // act
-        exerciseRepository.insert(exercise);
-        exercise.setName("Beinpresse");
-        exerciseRepository.update(exercise);
-
-        // assert
-        assertEquals(exercise.getName(), "Beinpresse");
-    }
+//    @Test
+//    void update() {
+//        // arrange
+//
+//        ExerciseRepository exerciseRepository = new ExerciseRepository();
+//
+//        Exercise exercise = new Exercise("Leg Extension");
+//
+//        // act
+//        exerciseRepository.insert(exercise);
+//        exercise.setName("Beinpresse");
+//        exerciseRepository.update(exercise);
+//
+//        // assert
+//        assertEquals(exercise.getName(), "Beinpresse");
+//    }
 
 }

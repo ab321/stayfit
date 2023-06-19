@@ -62,8 +62,13 @@ public class exerciseController extends stayfitController {
             @Override
             public void changed(ObservableValue<? extends Exercise> observableValue, Exercise exercise1, Exercise e) {
                 Exercise exercise = (Exercise) observableValue.getValue();
-                nameField.setText(exercise.getName() + "");
 
+                if(exercise != null) {
+                    nameField.setText(exercise.getName() + "");
+                }
+                else {
+                    nameField.setText("");
+                }
             }
         });
 

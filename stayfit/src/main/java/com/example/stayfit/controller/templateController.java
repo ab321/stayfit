@@ -62,8 +62,13 @@ public class templateController extends stayfitController {
             @Override
             public void changed(ObservableValue<? extends Template> observableValue, Template template1, Template t) {
                 Template template = (Template) observableValue.getValue();
-                nameField.setText(template.getName() + "");
 
+                if(template != null) {
+                    nameField.setText(template.getName() + "");
+                }
+                else {
+                    nameField.setText("");
+                }
             }
         });
     }
@@ -138,7 +143,8 @@ public class templateController extends stayfitController {
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
-            e.printStackTrace();
+            createAlertAndShow(Alert.AlertType.ERROR, "Error",
+                    "Es wurde keine Vorlage ausgewählt");
         }
     }
 

@@ -34,3 +34,23 @@
 #stayWeightLabel {
     -fx-text-fill: linear-gradient(to right, orange, black);
 }
+
+#gainProteinLabel{
+    -fx-text-fill: linear-gradient(to right, orange, black);
+}
+#stayProteinLabel{
+    -fx-text-fill: linear-gradient(to right, orange, black);
+}
+#loseProteinLabel{
+    -fx-text-fill: linear-gradient(to right, orange, black);
+}
+
+#gainKohlenhydrateLabel{
+    -fx-text-fill: linear-gradient(to right, orange, black);
+}
+#stayKohlenhydrateLabel{
+    -fx-text-fill: linear-gradient(to right, orange, black);
+}
+#loseKohlenhydrateLabel{
+    -fx-text-fill: linear-gradient(to right, orange, black);
+}

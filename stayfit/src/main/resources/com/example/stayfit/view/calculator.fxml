@@ -107,7 +107,7 @@
 
                         <Pane>
                             <Text layoutX="207.0" layoutY="22.0" text="Gewicht:" />
-                            <Label fx:id="weightLabel" layoutX="255.0" layoutY="9.0" prefHeight="17.0" prefWidth="59.0" text="" />
+                            <Label fx:id="weightLabel" layoutX="255.0" layoutY="9.0" prefHeight="17.0" prefWidth="235.0" text="" />
                         </Pane>
 
                         <HBox alignment="CENTER">
@@ -118,7 +118,7 @@
 
                         <Pane>
                             <Text layoutX="207.0" layoutY="23.0" text="Gehen:" />
-                            <Label fx:id="walkingLabel" layoutX="249.0" layoutY="8.0" prefHeight="17.0" prefWidth="23.0" text="" />
+                            <Label fx:id="walkingLabel" layoutX="249.0" layoutY="8.0" prefHeight="17.0" prefWidth="247.0" text="" />
                         </Pane>
 
                         <HBox alignment="CENTER">
@@ -129,23 +129,36 @@
 
                         <Pane>
                             <Text layoutX="205.0" layoutY="28.0" text="Cardio:" />
-                            <Label fx:id="cardioLabel" layoutX="244.0" layoutY="15.0" prefHeight="17.0" prefWidth="47.0" text="" />
+                            <Label fx:id="cardioLabel" layoutX="244.0" layoutY="15.0" prefHeight="17.0" prefWidth="246.0" text="" />
                         </Pane>
                         
                         <HBox alignment="CENTER">
                             <children>
-                                <Slider fx:id="cardioSlider" max="20" min="0" prefHeight="10.0" prefWidth="300.0" VBox.vgrow="ALWAYS" />
+                                <Slider fx:id="cardioSlider" max="20" min="0" prefHeight="22.0" prefWidth="300.0" VBox.vgrow="ALWAYS" />
                             </children>
                         </HBox>
 
                         <HBox alignment="CENTER" />
 
 
-                        <HBox alignment="CENTER" prefHeight="48.0" prefWidth="700.0" spacing="20">
+                        <HBox alignment="CENTER" prefHeight="24.0" prefWidth="700.0" spacing="20">
                             <Label fx:id="gainWeightLabel" />
                             <Label fx:id="stayWeightLabel" />
                             <Label fx:id="loseWeightLabel" />
                         </HBox>
+
+                        <HBox alignment="CENTER" prefHeight="22.0" prefWidth="700.0" spacing="20">
+                            <Label fx:id="gainKohlenhydrateLabel" />
+                            <Label fx:id="stayKohlenhydrateLabel" />
+                            <Label fx:id="loseKohlenhydrateLabel" />
+                        </HBox>
+
+                        <HBox alignment="CENTER" prefHeight="22.0" prefWidth="700.0" spacing="20">
+                            <Label fx:id="gainProteinLabel" />
+                            <Label fx:id="stayProteinLabel" />
+                            <Label fx:id="loseProteinLabel" />
+                        </HBox>
+
 
                     </children>
 

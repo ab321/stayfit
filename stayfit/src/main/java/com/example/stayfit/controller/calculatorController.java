@@ -46,6 +46,24 @@ public class calculatorController extends stayfitController {
     @FXML
     private Label loseWeightLabel;
 
+    @FXML
+    private Label gainProteinLabel;
+
+    @FXML
+    private Label stayProteinLabel;
+
+    @FXML
+    private Label loseProteinLabel;
+
+    @FXML
+    private Label gainKohlenhydrateLabel;
+
+    @FXML
+    private Label stayKohlenhydrateLabel;
+
+    @FXML
+    private Label loseKohlenhydrateLabel;
+
     public void initialize() {
         ageSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             ageLabel.setText("" + newValue.intValue());
@@ -63,12 +81,12 @@ public class calculatorController extends stayfitController {
         });
 
         walkingSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
-            walkingLabel.setText(newValue.intValue() + " h");
+            walkingLabel.setText(newValue.intValue() + " h/woche");
             calculate();
         });
 
         cardioSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
-            cardioLabel.setText(newValue.intValue() + " h");
+            cardioLabel.setText(newValue.intValue() + " h/woche");
             calculate();
         });
 
@@ -94,8 +112,26 @@ public class calculatorController extends stayfitController {
         int mainWeightCalories = totalCalories;
         int loseWeightCalories = totalCalories - 500;
 
+        int toGainProtein = (int) (weight * 2.4);
+        int toStayProtein = (weight * 2);
+        int toLoseProtein = (weight * 2);
+
+        int toGainKoh = (int) (weight * 5.5);
+        int toStayKoh =  (int) (weight * 3.8);
+        int toLoseKoh = weight * 2;
+
         gainWeightLabel.setText("Gewicht zunehmen: " + gainWeightCalories + " kcal" );
         stayWeightLabel.setText("Gewicht halten: " + mainWeightCalories + " kcal");
         loseWeightLabel.setText("Gewicht abnehmen: " + loseWeightCalories + " kcal");
+
+        gainKohlenhydrateLabel.setText("       Kohlenhydrate: " + toGainKoh + "g");
+        stayKohlenhydrateLabel.setText("             Kohlenhydrate: " + toStayKoh + "g");
+        loseKohlenhydrateLabel.setText("              Kohlenhydrate: " + toLoseKoh + "g");
+
+        gainProteinLabel.setText("         Protein: " + toGainProtein + "g");
+        stayProteinLabel.setText("                     Protein: " + toStayProtein + "g");
+        loseProteinLabel.setText("                          Protein: " + toLoseProtein + "g");
+
+
     }
 }
